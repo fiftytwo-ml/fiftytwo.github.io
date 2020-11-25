@@ -1,0 +1,1205 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={An Intelligent Market Cycle Detection System},
+            pdfauthor={Michael S. Azer},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{An Intelligent Market Cycle Detection System}
+\author{Michael S. Azer}
+\date{2020-11-25}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\listoftables
+\listoffigures
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+Very few economic phenomena attract more attention than the bull and bear market cycles do. The importance of bull markets to the financial community appears to be self-evident, and there is also agreement that bull markets are associated with persistently rising share prices, strong investor interest, and enhanced financial well-being.
+
+Many of the important market turning points, such as the October 1987 stock market crash, are also well known. Despite this widespread popular agreement on the importance of bull markets, it can be noted that there still does not exist a general consensus as to the objective definition of a bull market. Until recently, many researchers believed in a random walk model with constant drift and therefore did not even agree that bull and bear markets are distinct financial economic phenomena, instead believing that they are the result of ex-post categorization of random data. This paper introduces a formal definition of bull and bear market cycles and examines whether the approach can be used to identify bull and bear markets that can be characterized as states with persistent and statistically significant differences in mean returns. The paper utilizes a formal turning-point procedure to objectively identify troughs and peaks in stock index series that indicate the starting and finishing points of bull markets, subject to the requirement that the intervening time intervals are sufficiently sustained to be economically meaningful. The procedure follows the algorithm developed by Bry and Boschan (1971) to determine turning points in the business cycle. Issues surrounding its implementation on stock markets have been highlighted in Pagan and Sossounov (2003).
+
+The stock market turning-point identification procedure is implemented using two centuries of index return data, and analysis of the implementation highlights return evidence that indicates whether bull markets can be described as distinct investment return regimes. The analysis emphasizes the properties of bull markets that have a practical relevance to investors, including the persistence of return differences between bull and bear markets once return states have been detected, as well as the interrelationship between bull markets and investor interest. The strong binvestor interestQ aspect of bull markets is incorporated into the analysis by determining whether there is a relationship between bull markets and rising volume, a measure that is often considered to be an important indicator of investor sentiment towards the stock market. The Bry and Boschan (1971) turning-point determination algorithm is therefore applied to share trading volume data to identify periods of rising and falling volume. A surprising result that emerges from the analysis is the finding that time periods with falling volume are associated with considerably higher return volatility, whether a bear market exists. Time periods with falling volume can be associated with an increased likelihood of trading with informed traders, thus, information trading could play a role in the relationship between trading volume and volatility. We thank an anonymous referee for pointing this out.
+
+This result has implications for asset return models that assume that bear markets can be identified as high-volatility states (Maheu \& McCurdy, 2000). Once the properties of bull and bear market cycles are characterized and examined, the study investigates a number of useful related issues, including the possibility that bull and bear markets are exclusively a 20th century phenomenon. The study's results provide insights into the persistent nature of stock market cycles. The paper's analysis indicates that early warning signs of subsequent poor returns provided by share price index and volume turning points can be especially important to investors, as is the documentation of large and persistent return differences between bull and bear markets. Evidence on the interaction between bull markets and trading volume trends also raises interesting questions regarding investor sentiment effects.
+
+\citep{gonzalez2005two}
+
+This project focuses on developing an intelligent system that utilizes technical analysis enabling the identification of critical stock price cycle movements. The system should enable the identification of the following 8 stages in the stock cycle: Early Bull, Mid Bull, Late Bull, Top, Early Bear, Mid Bear, Late Bear, and Bottom.
+
+\hypertarget{statement-of-the-problem}{%
+\section{Statement of the Problem}\label{statement-of-the-problem}}
+
+In general, methodologies that are conventionally used in research are not robust to determining asset price cycles; each arrives at different results. This project aims at determining stock price cycles using machine learning techniques on the S\&P500 index. This paper presents a holistic analysis of factors affecting cycles. The dataset that is used in the clustering of the cycle phases incorporates political events, economic factors, as well financial indicators. After clusters are formed, the factors (or features) will be ranked according to importance for each phase.
+
+\hypertarget{objective}{%
+\section{Objective}\label{objective}}
+
+The objective of the research is to analyze the possibility of determining the span of cycles in stock market prices in a robust way. Based on the identified cycles, investment length decisions can be made.
+The research outcome will be delivered in the form of an application that can be used by investment companies to identify the current market stage of the stock market cycle.
+
+\hypertarget{significance}{%
+\section{Significance}\label{significance}}
+
+The significance of this research is that it presents a new holistic method for segmentation of stock market cycles. In addition it finds important factors affecting each cycle phase along with their weights.
+
+\hypertarget{litrev}{%
+\chapter{Literature Review}\label{litrev}}
+
+The literature is full of research on factors that determine stock market cycles. Researchers have studied the macro-economic factors determining market cycles, not just minor fluctuations or short-term changes in trends \citep{bosworth1975stock}. The importance and the continuous improvement of the interpretation and prediction models of stock market cycles have led it to be an evergreen topic \citep{jareno2019macroeconomic}.
+
+Researchers have divided methodologies that analyze business cycles into two main categories: the growth cycle approach, and the classical cycle approach. \citep[McDermott and Scott, 1999;][]{harding2005suggested} The growth cycle approach analyzes deviations from a long-run trend of economic activity, while the classical cycle approach aims to find a pattern of expansions and contractions in economic activity. In earlier papers, Harding and Pagan \citetext{\citeyear{harding2001extracting}; \citeyear{harding2002dissecting}} have also devised a methodology called the triangular method that constructs a chronology for boom and recession phases in real asset prices.
+
+In each of the aforementioned methodologies, researchers choose among different procedures that primarily filter the series, then determine the optimal threshold to classify time periods into market stages. The most used method in the literature is the mean-reversion method (sometimes called the moving average method). In this method, the moving average of a series' returns is calculated. Accordingly, periods with returns higher than a predefined threshold are classified as boom periods, while periods with returns lower are classified as recession periods. \citep{michaelides2017stock}
+
+A parallel research track is linking macro-economic factors and political events with the stock market (Allvine \& O'Neill, 1980). As an example, they have succeeded in finding patterns between presidential elections and stock market cycles. Researchers have since then been researching and correlating new events to properly classify cycle phases \citep{santa2003presidential, herbst1984political}.
+
+In general, the literature is full of research that aims at discovering stock market cycles whether using technical indicators, or using political/economic events. On the other hand, there is barely any research used that combines machine learning techniques with both, technical indicators and political/economic events.
+
+\hypertarget{duration-dependence}{%
+\section{Duration-dependence}\label{duration-dependence}}
+
+\hypertarget{definition}{%
+\subsection{Definition}\label{definition}}
+
+Stating that the stock market follows a random walk presents important challenges to those who use fundamental analysis, as well as those who use technical analysis. In an efficient market, at any point in time, the price of the security reflects its intrinsic value. If the price of a security followed a random walk, the intrinsic value of a security would have never been determined. \citep{fama1995random}
+
+Describing the stock market as following a random walk is not consistent with the notion of seasonality or cycles. If stock prices follow a random walk, then ``prolonged cycles of expansion and contraction are similar to runs of consecutive heads or tails in a fair coin toss. Regardless of how many consecutive heads are obtained, for example, the probability of obtaining a head on the next toss remains constant.'' \citep{cochran1995duration}
+
+It is arguble that the stock market has undergone cycles of expansion and contraction in the last century. In order to confirm this, a clear definition of cycles is needed. In the literature, there is no general consensus on the definition of stock market cycles. Earlier studies, define expansions as the periods when the monthly returns exceed a certain value, and vice verse \citep{fabozzi1977stability, kim1979analysis, chen1982examination}. The problem with such a definition is that it ignores trends that exist in markets.
+
+Lunde and Timmermann \citeyearpar{lunde2004duration} solved this problem by adding an upward price trend to their definition, stating that a cycle is a long-term upward price movement characterized by higher intermediate highs interrupted by higher intermediate lows.
+
+In general, ``a stock market is said to change from contraction to expansion if the stock index has risen for a substantial period since its previous troughs.'' \citep{chong2010investigation}
+
+\citep{ohn2004testing}
+
+\citep{harman2007nonlinear}
+
+\hypertarget{turning-point-detection}{%
+\subsection{Turning-point Detection}\label{turning-point-detection}}
+
+\citep{gonzalez2005two}
+
+A limited number of studies have examined bull and bear markets, but very few of these studies have utilized formal, consistent, and quantifiable rules (Pagan \& Sossounov, 2003). It is also usually impossible to work backwards from the bull and bear market dates provided in the studies to determine the rules that were used. Most stock market turning-point dating methods appear to implicitly use informal, complicated variants of the National Bureau of Economic Research (NBER) rules for dating the business cycle (see, e.g., Rea \& Marcus, 1996).
+
+Bry and Boschan (1971) devise an algorithm to replicate the widely agreed-upon NBER business cycle turning points, thus creating quantitative, formal dating rules that mimic the qualitative rules used by the NBER to decide upon turning points. The algorithm detects local peaks and troughs in the business cycle, subject to certain rules---a peak (trough) is identified as a point higher (lower) than points 6 months on either side (the window). A cycle must last at least 15 months from the peak to the trough and back to the peak, and a phase (expansion or contraction) must span at least 5 months (the minimum phase length). This latter 5-month rule is extremely important, especially for stock market applications, because cycle phases that last for less than 5 months will generally have little economic or statistical significance, thus, their inclusion would often tend to limit the potential usefulness of the dating exercise for investors and researchers.
+
+Devising an algorithm to replicate stock market turning points is problematic because there is a lack of consensus regarding some of the bull and bear market turning points. Pagan and Sossounov (2003) have therefore adapted the Bry and Boschan (BB) algorithm for use in stock markets by consulting some of the earliest literature on bull and bear markets. First, the data are not smoothed at all because the large movements that are possible in equity markets are some of the most interesting data points, and smoothing the data might remove their effects (see also Canova, 1994, 1999).3 The window for identifying local peaks and troughs is extended to 8 months on either side, with the extension being justified based upon the lack of smoothing of the data. A cycle is required to last at least 16 months (rather than 15 months), whereas the minimum phase length is reduced to 4 months. To accommodate the sharp movements that can be observed in stock prices, the minimum phase length is disregarded should the stock price index fall or rise by 20\% in a single month.
+
+Pagan and Sossounov (2002) apply their algorithm to a series of 20th century stock index data from the U.S., UK, and Australian markets. Once the turning points have been identified, characteristics of bull and bear markets are examined. Bull markets are found to last longer and give higher returns in Australia than in the other two countries, although the patterns are quite similar. Most bull markets result in a greater than 20\% rise in stock prices, while fewer than half of the bear markets result in a market decline of more than 20\%. The information gathered about bull and bear markets is used to test whether various asset-pricing models are capable of producing simulated returns with properties that are similar with those actually observed.
+
+An alternative and more complex method of identifying bull and bear market turning points is that of regime switching. Maheu and McCurdy (2000) apply a Markov regime switching model with duration dependence. In this instance, bull and bear markets are defined as high-return stable states and low-return volatile states, respectively. The best market gains are found to occur at the beginning of a bull market, and the stock market is found to spend 90\% of its time in bull markets.
+
+Turner, Startz, and Nelson (1989) find that excess returns can be modeled using a mixture of normal densities with different means and variances. Agents' volatility perceptions determine the risk premium in their model, and they argue that agents are continually surprised when entering high-volatility states. Their analysis focuses on volatility shifts rather than on the dating of bull and bear market turning points.
+
+Hamilton and Lin (1996) examine the joint behaviour of stock returns and industrial production. They find that economic recessions are the primary factor that drive fluctuations in the volatility of stock returns. They argue that stock returns are well characterized by year long episodes of high volatility, separated by longer quiet periods.
+
+Schaller and Van Norden (1997) test between fads and bubble explanations of stock market returns. They find evidence in favour of a bubbles model, in which expected returns are greater in states when the bubble survives than when it collapses, and collapses are more likely to occur when bubbles are large
+in magnitude. A crash is defined in their model as a move of two standard deviations below the mean.
+
+Stock market studies that consider market trends but do not formally examine bull and bear markets include the return momentum literature. This literature finds that individual bwinningQ stocks, as well as portfolios of bwinnerQ stocks, tend to outperform during the following quarters, thus indicating the existence of an important momentum effect in the stock market (see, e.g., Haugen \& Baker, 1996; Jegadeesh \& Titman, 1993). Chan, Hameed, and Tong (2000) find that international country index momentum strategies are profitable, thus implying that momentum effects are also important at the aggregate stock index level. Their result therefore indirectly indicates that bull and bear market cycles are likely to provide economically and statistically significant return differences because it could be anticipated that positive momentum would correspond to bull market phases and negative momentum to bear markets. The authors also examine the interrelationship between momentum effects and share trading volume trends using an informal, short-term definition of trading volume direction.
+
+Aggregate stock market momentum effects, whether due to investor herding behaviour or underlying fundamental reasons, provide a possible explanation as to why bull markets could display return persistence, as could style-investing effects, whereby a particular investing style becomes predominant during a particular time period (Barberis \& Shleifer, 2000; Grinblatt, Titman, \& Wermers, 1995; Lakonishok, Shleifer, \& Vishny, 1992). Chordia and Shivakumar (2002) find that stock market momentum effects can be explained using a set of lagged macroeconomic variables, thus implying that time-varying expected returns are a potentially important consideration when explaining return continuation in bull or bear markets.
+
+Welch (2000) finds that analysts adjust their forecasts to follow the prevailing consensus when the short-term stock market trend is bullish and revise their forecasts downwards when the stock market has fallen. He argues that this consensus-following in upwards- trending markets, makes bull markets more fragile because optimism prevails even when it is misplaced, thus increasing the likelihood that bad news could have a dramatic effect on investors as they realize that their optimism was unwarranted. The analysis also suggests that bull markets and investor optimism indicators are intertwined. Welch looks at the return during the preceding 60 days to determine whether market conditions are bullish or bearish.
+
+\hypertarget{cycle-length}{%
+\subsection{Cycle Length}\label{cycle-length}}
+
+The first issue to be addressed is whether stock prices have a tendency to maintain fixed cycle lengths. The existence of fixed cycle lengths has three important and interrelated implications for stock price behavior.
+
+\begin{itemize}
+\tightlist
+\item
+  First, as a cycle lengthens, the probability that it will end should increase.
+\item
+  Second, the existence of fixed cycle lengths indicates that the length of a cycle may be useful in forecasting future turning points in the stock market. This view is sometimes expressed in the popular press in regard to both stock market and overall economic activity.
+\item
+  Third, the tendency for stock prices to maintain fixed cycle lengths implies that the stock market follows an alternating pattern of bull and bear markets, i.e.~that predictable periodicity is present in stock market prices. \citep{cochran1995duration}
+\end{itemize}
+
+\hypertarget{cycle-synchronization}{%
+\subsection{Cycle Synchronization}\label{cycle-synchronization}}
+
+\citep{crum1925progressive}
+\citep{harding2006synchronization}
+
+\hypertarget{bubbles-and-recessions}{%
+\subsection{Bubbles and Recessions}\label{bubbles-and-recessions}}
+
+\citep{mcqueen1994bubbles}
+
+In particular, one of the NBER dating rules is that recessions must correspond to a general downturn in various sectors of the economy for a minimum duration of 6 months.
+
+See Hamilton 1989 and Chauvet 1998 , among others, for alternative business cycle dating.
+
+Thus, the NBER recessions do not reflect periods of short-lived contractions or periods in which only some sectors of the economy might experience a downturn. There is no reason to believe that the stock market only responds to recessions as defined by the NBER. ÷
+
+\citep{chauvet2000coincident}
+
+\hypertarget{established-cycles}{%
+\section{Established Cycles}\label{established-cycles}}
+
+\hypertarget{kondratiev}{%
+\subsection{Kondratiev}\label{kondratiev}}
+
+The Kondratiev (Kondratieff) Cycle, or sometimes referred to as the Kondrtiev Wave, refers to ``wave-like movements in prices, interest rates, and other economic quanitites that repeat at 50-60 year intervals.'' \citep{alexander2002kondratiev} These long-term cycles were noted in an article in the British Railway Journal by Dr.~Hyde Clark back in 1847 \citep{mager1987kondratiev}, but it was named after Nikolai Kondratiev because he was the first to describe it in detail in 1935 (1926). Between Clark and Kondratiev several scientists studied business cycles, such as William Jevins who related business cycles to sunspot activity (Jevons, 1878), and Henry Ludwell Moore who studied the relation between business cycles and climate variations. (Moore, 1914) Kondratiev's work has been used as a foundation for several later studies.
+
+Joseph Schumpeter, another famous scientist in the economical cycles field, linked long-term economic cycles (and in particular Kondratiev's cycle) to major technological innovations, which he claimed come in clusters (Schumpeter, 1939).
+
+Kondratiev's work has been heavily scrutenized by several critics who doubted the existence of such waves, as well as the explanation suggested by Schumpeter. A prominent critic is Murray Rothbard, who presented arguments showing that the Kondratiev cycle is not consistent. In addition he argued that the methodology implemented by Kondratiev was based on the fluctuation of prices, which do not directly nor accurately reflect the state of the economy. (Rothbard,1978)
+
+\hypertarget{kuznets}{%
+\subsection{Kuznets}\label{kuznets}}
+
+\hypertarget{juglar}{%
+\subsection{Juglar}\label{juglar}}
+
+\hypertarget{kitchin}{%
+\subsection{Kitchin}\label{kitchin}}
+
+\citep{kitchin1923cycles}
+\citep{crum1923cycles}
+\citep{crum1925progressive}
+
+\hypertarget{classification-of-sp500}{%
+\section{Classification of S\&P500}\label{classification-of-sp500}}
+
+\hypertarget{features-to-determine-phases}{%
+\section{Features to determine phases}\label{features-to-determine-phases}}
+
+\hypertarget{political-events}{%
+\subsection{Political Events}\label{political-events}}
+
+\hypertarget{presidential-cycles}{%
+\subsubsection{Presidential Cycles}\label{presidential-cycles}}
+
+It is reasonable to believe there is a four-year cyclical behavior in the stock market that mirrors the presidential cycle. \citep{herbst1984political} Herbst and Slinkman have studied this behavior on monthly data of the CSRP index in the period between January 1926 and December 1977. They have successfully concluded that there is a four-year that reaches its peak in December of presidential election years. This research opened the doors for other researchers to build on their findings, because they only studied the presence of such a four cycle, but did not go into studying the effect of different parties on the stock market.
+
+During the periods prior to elections, the media is filled with debates whether Democrats or Republicans are better for the US economy. Minimum or no attention has been given to this topic in academic research, until Santa-Clara and Valkanov published their study. In their study, they measured the excess return of the value-weighted CRSP and the equal-weighted CSRP indices over the three-month Treasury bill rate for data between 1927 and 1998. Their results showed that on average Republicans yielded 2 percent versus 11 percent under Democratic presidents. \citeyearpar{santa2003presidential} Although the paper was statistically and empiracally correct, it failed at stating the reasons behind such behavior, and named it the ``presidential puzzle''.
+
+Pastor and Veronesi in their research sought out to solve the ``presidential puzzle''. The puzzle seemed as a genuine fact, especially that between 1999 and 2015 the gap widened from the 9\% measured by Santa-Clara and Valkanov to 17.4\% per year. Although it may be tempting to link such a behavior to different economic policies of the two parties, Pastor and Veronesi found that the main factor is risk appetite. ``Democrats tend to get elected when expected future returns are high; Republicans win when expected returns are low.'' \citeyearpar{pastor2017political} In other words Democrats more likely to get elected when risk aversion is high.
+
+This high-risk aversion that leads to the election of democrats has been studied and hypothesized by several researchers. Wright \citeyearpar{wright2012unemployment} proved that high unemployment rates greatly affect voters' tendency to vote for the Democratic party. Guiso et al \citeyearpar{guiso2018time} generalized Wright's findings to include all times of economic turmoil, not just high unemployment rates. During such periods, high tax parties tend to get elected. Broz's study \citeyearpar{broz2013partisan} examined several developed countries and found that left-wing governments (Democrats, in the US) have a higher probability to be elected after financial crashes. This can be affirmed by a simple review of history:
+
+\begin{itemize}
+\tightlist
+\item
+  In 1932, during the Great Depression, Franklin Roosevelt won the election.
+\item
+  During the 1960-61 recession, John F. Kennedy was elected.
+\item
+  After the 1973-75 recession, Carter won the election.
+\item
+  After the 1990-91 recession, Clinton won.
+\item
+  At the peak of the 2008 financial crisis, Republican George W. Bush was replaced by Democrat Barack Obama.
+\end{itemize}
+
+It can be concluded that ``when the economy is weak, risk aversion rises, contributing to a Democrat victory.'' \citep{pastor2017political}
+
+Belo, Gala, and Li \citeyearpar{belo2013government} introduce a new factor to the study of the relation between presidential cycles and the stock market, government spending. They believe that Democratic policies of government spending flourish the market. ``During Democratic presidencies, firms with high government exposure experience higher cash flows and stock returns, while the opposite pattern holds true during Republican presidencies.''
+
+\hypertarget{cabinets}{%
+\subsubsection{Cabinets}\label{cabinets}}
+
+\hypertarget{wars}{%
+\subsubsection{Wars}\label{wars}}
+
+\citep{aguiar2012cycles}
+
+\hypertarget{economic-factors}{%
+\subsection{Economic Factors}\label{economic-factors}}
+
+A great deal of evidence has recently been uncovered concerning the predictability of excess stock returns using financial and macroeconomic variables that convey publicly available information about business conditions. Most of this evidence is based on linear regression methods, which show that
+
+\begin{itemize}
+\tightlist
+\item
+  lagged values of the dividend yield,
+\item
+  earning-price ratios,
+\item
+  interest rates, and
+\item
+  measures of the term premium or default risk
+\end{itemize}
+
+are statistically significant explanatory variables. Some researchers have interpreted these regressors as proxies for unobserved time-varying risk premia.
+
+See, for example Fama and French 1988; 1989 , Fama and Schwert 1977 , Keim and Stambaugh 1986 , or Campbell and Shiller 1988 among others.
+
+One conclusion has been that the unobserved risk premia vary systematically over the business cycle.
+
+\citep{chauvet2000coincident}
+
+During six weeks in late 1937, Wesley Mitchell, Arthur Burns, and their colleagues at the National Bureau of Economic Research developed a list of leading, coincident, and lagging indicators of economic activity in the United States as part of the NBER research program on business cycles. Since their development, these indicators, in particular the leading and coincident indexes constructed from these indicators, have played an important role in summarizing and forecasting the state of macro-economic activity.
+This paper reports the results of a project to revise the indexes of leading and coincident economic indicators using the tools of modern time series econometrics. This project addresses three central questions.
+* The first is conceptual: is it possible to develop a formal probability model that gives rise to the indexes of leading and coincident variables? Such a model would provide a concrete mathematical framework within which alternative variables and indexes could be evaluated.
+* Second, given this conceptual framework, what are the best variables to use as components of the leading index? Third, given these variables, what is the best way to combine them to produce useful and reliable indexes?
+The results of this project are three experimental monthly indexes: an index of coincident economic indicators (CEI), an index of leading economic indicators (LEI), and a Recession Index. The experimental CEI closely tracks the coincident index currently produced by the Department of Commerce (DOC), although the methodology used to produce the two series differs substantially. The growth of the experimental CEI is also highly correlated with the growth of real GNP at business cycle frequencies. The proposed LEI is a forecast of the growth of the proposed CEI over the next six months constructed using a set of leading variables or indicators. The Recession Index, a new series, is the probability that the economy will be in a recession six months hence, given data available through the month of its construction.
+This article is organized as follows. Section 2 contains a discussion of the indexes and a framework for their interpretation. Section 3 presents the experimental indexes, discusses their construction, and examines their within-sample performance. In Section 4, the indexes are considered from the perspective of macroeconomic theory, focusing in particular on several salient series that are not included in the proposed leading index. Section 5 concludes.
+
+\citep{stock1989new}
+
+\hypertarget{unemployment}{%
+\subsubsection{Unemployment}\label{unemployment}}
+
+\citep{wright2012unemployment}
+
+\hypertarget{government-spending}{%
+\subsubsection{Government Spending}\label{government-spending}}
+
+\hypertarget{gdp}{%
+\subsubsection{GDP}\label{gdp}}
+
+\hypertarget{interest-rates}{%
+\subsubsection{Interest Rates}\label{interest-rates}}
+
+\citep{chauvet2005forecasting}
+
+\hypertarget{foreign-exchange}{%
+\subsubsection{Foreign Exchange}\label{foreign-exchange}}
+
+\hypertarget{index-for-industrial-production}{%
+\subsubsection{Index For Industrial Production}\label{index-for-industrial-production}}
+
+\hypertarget{health-shocks-pandemics-and-epidemics}{%
+\subsection{Health Shocks (Pandemics and Epidemics)}\label{health-shocks-pandemics-and-epidemics}}
+
+``The fourth-worst global macroeconomic event since 1870 seems to be the Great Influenza Epidemic of 1918-20. This''health shock" accounts for 13 of the depression events." \citep{barro2009pandemics}
+
+It seems unlikely that the 2009 influenza epidemic will be anywhere near as bad as the 1918-20 pandemic in illness or mortality. For more recent comparisons, one can begin with the flu pandemics of 1957-58 and 1968-70, which were serious in terms of deaths but not comparable to 1918-20. In these cases, stock prices fell temporarily in some countries, until the limited scope of the pandemics became clear. In 1976, a swine-flu scare prompted a fall in stock prices in some countries and a massive U.S. immunization campaign. However, the disease was soon found to be mild, and the overall effects on financial markets were minor. The most recent event is the outbreak of SARS in late 2002. This pandemic caused a widespread fall in stock prices, until the limited nature of the disease threat became evident in the spring of 2003. The economic impacts of the four post-World War II flu events are difficult to pin down and are surely much smaller in magnitude that those from the 1918-20 pandemic.
+
+\hypertarget{financial-indicators}{%
+\subsection{Financial Indicators}\label{financial-indicators}}
+
+\hypertarget{fundamental}{%
+\subsubsection{Fundamental}\label{fundamental}}
+
+\hypertarget{technical}{%
+\subsubsection{Technical}\label{technical}}
+
+According to John Murphy \citeyearpar{murphy1999technical}, the technical analysis approach is built on three main premises:
+
+\begin{itemize}
+\tightlist
+\item
+  The first premise, which summarizes the whole reason behind Technical Analysis, is that the market movements discount all factors. This entails that anything that can affect the price whether fundamentally, politically, psychologically or otherwise is actually reflected in the market price.
+\item
+  The second premise is that prices move in trends. Therefore, the purpose of charting the market price movement is to be able to identify trends, thus trade in the right direction.
+\item
+  The third premise is that history repeats itself, thus patterns that have worked well in the past are assumed to continue working well in the future. This premise is built on the belief that the psychology of the human rational investor does not tend to change. This leads to a high probability that historical market patterns will be repeated in the future.
+\end{itemize}
+
+Fang et al. \citeyearpar{fang2014technical} state that although the patterned behavior may seem irrational, through exploration the pattern one can effectively predict future price movements.
+
+Market indicators are meant to expand the set of information used by traders beyond price and volume. They can be classified into two groups:
+
+\begin{itemize}
+\tightlist
+\item
+  Market sentiment indicators that predict market movements based on tracking the bullish or bearish psychology of the market. Simply, when bullish sentiment dominates the market, stock prices rise, leading to an increased demand for securities, and vice versa.
+\item
+  Market strength indicators that measure the strength of market movements. A strong movement with a higher breadth reading will last longer and take the market to higher highs, and vice versa.
+\end{itemize}
+
+Chong et al. \citeyearpar{chong2010investigation} state that a recurrent method for identifying the bull/bear pattern is the intersection of the 250-day moving average line with the security price line. A bull pattern is the period during which the security price is above its 250-day moving average, and vice versa. Researchers and investors who utilize this do so for its simple to implement, its self adjusts to price trends, and its quick identification of market patterns.
+
+Another famous method in finding patterns is the Bry and Boschan (BB) routine. It finds statistical maxima and minima, and in the meantime incorporating censoring rules, as well as phase and cycle length constraints.\citep{granger1972cyclical}
+
+In comparison to the moving average method, ``the BB method has a time lag problem since it uses the future price to define the current trough and peak. For instance, if monthly data are used, we can only identify a pattern 6 month after its occurrence.'' \citep{chong2010investigation}
+
+Fand, Qin and Jacobsen \citep{fang2014technical} studied 93 technical indicators on the S\&P500, covering daily, weekly, monthly and annual indicators, and concluded that although some indictors may beat the market, none of them are statisticaltly robust to beat the buy-and hold strategy. This result does not change even when they consider the possibility of switching predictability methods on business cycles or sentiment cycles.
+
+\hypertarget{importance-of-features}{%
+\section{Importance of features}\label{importance-of-features}}
+
+\hypertarget{market-prediction}{%
+\section{Market prediction}\label{market-prediction}}
+
+\hypertarget{methodology}{%
+\chapter{Methodology}\label{methodology}}
+
+The research will utilize machine learning techniques using economic data, political events, and technical indicators as features for classifying Stock Market cycles.
+
+\begin{itemize}
+\item
+  Firstly, a study and reimplementation of earlier studies such as Kondratiev, Schumpeter, Kuznets, Juglar and Kitchin cycles.
+\item
+  Secondly, ARIMA variations, fourier transformations, moving average methods will be some of the features used in the model.
+\item
+  Thirdly, presidential elections (political parties) and political events (riots and wars) will also be added to the model.
+\item
+  Fourthly, employment reports, balance of payments, GDP, and other significant economic information will be added to the model.
+\end{itemize}
+
+A classification model will be built using different machine learning classifiers, utilizing hyper-parameter optimization to robustly build an application that correctly identifies and mimics stock market cycles.
+
+Find factors that identify the top and bottom of cycles, then go deeper into factors that determine the phases within
+
+\hypertarget{data}{%
+\section{Data}\label{data}}
+
+\textbf{UNEDITED}
+We evaluate the technical indicators' forecastability on the S\&P 500, which proxies for the overall U.S. stock market. The returns are calculated as the log differences of current prices and prices from one period ahead. The S\&P 500 contains the 500 most
+actively traded large-cap common stocks in the U.S. stock market. As one of the most
+historically extensive indices, the S\&P 500 became available at daily, weekly and
+monthly frequencies in 1938, 1918, and 1791, respectively.
+We study the S\&P 500 for several reasons. First, the long data series naturally shield against the potential data-snooping problem pointed out by Lakonishok and Smidt (1988) and Lo and MacKinlay (1990). Second, we have a wide range of technical indicators with sufficiently long data series designed specifically for the sophisticated U.S. market. The 500 stocks are listed on either the NYSE or the NASDAQ, the two largest American stock exchanges. This means that the S\&P 500 index correlates highly with the NYSE and NASDAQ indices, which enables us to study technical indicators that contain information from both of these markets. Third, public investors hold the majority of the stocks in the U.S. market. Such heavy involvement of public investors satisfies the essential theoretical condition for many of the sentiment indicators, that uninformed investor sentiment becomes so influential that it can shift market movements. Last, the S\&P 500 provides us with a sufficient number of stocks to ensure considerable market breadth when examining the market strength indicators.
+
+\citep{fang2014technical}
+
+\hypertarget{techniques}{%
+\section{Techniques}\label{techniques}}
+
+Pagan and Sossounov \citeyearpar{pagan2003simple} use a BB-type definition \citeyearpar{granger1972cyclical} to classify market regimes.
+
+\begin{figure}
+\includegraphics[width=0.6\linewidth]{data/data preparation} \caption{Data Preparation Methodology}\label{fig:unnamed-chunk-1}
+\end{figure}
+
+\hypertarget{data}{%
+\chapter{Data Preparation}\label{data}}
+
+\begin{quote}
+``If you torture the data long enough, it will confess.''
+\hfill --- Ronald Caase, Economist (1910-2013)
+\end{quote}
+
+There is mast amount of data available publicly from many reliable sources. This data ranges market, fundamental, economic, and political data. The aim of this section of the research is to curate and manipulate the different available data to find viable indicators of the current market cycle.
+
+\hypertarget{factors-tested}{%
+\section{Factors Tested}\label{factors-tested}}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-9}List of factors}
+\centering
+\begin{tabular}[t]{l|>{\raggedright\arraybackslash}p{5cm}|l|l|l}
+\hline
+Factor & Name & Stationary & Linear & Chart\\
+\hline
+FRED/NFCI & National Financial Conditions Index & TRUE & FALSE & \\
+\hline
+FRED/INDPRO & Industrial Production Index & FALSE & FALSE & \\
+\hline
+FRED/GCE & Government Consumption Expenditures and Gross Investment & FALSE & FALSE & \\
+\hline
+FRED/UNRATE & Unemployment Rate & TRUE & FALSE & \\
+\hline
+FRED/GDPC1 & Real Gross Domestic Product & FALSE & FALSE & \\
+\hline
+FRED/PSAVERT & Personal Saving Rate & FALSE & FALSE & \\
+\hline
+FRED/DSPI & Disposable Personal Income & FALSE & FALSE & \\
+\hline
+FRED/CMRMTSPL & Real Manufacturing and Trade Industries Sales & FALSE & FALSE & \\
+\hline
+FRED/PERMIT & New Private Housing Units Authorized by Building Permits & FALSE & FALSE & \\
+\hline
+FRED/DGS10 & 10-Year Treasury Constant Maturity Rate & FALSE & FALSE & \\
+\hline
+FRED/T10Y2Y & 10-Year Treasury Constant Maturity Minus 2-Year Treasury Constant Maturity & FALSE & FALSE & \\
+\hline
+FRED/T10YFF & 10-Year Treasury Constant Maturity Minus Federal Funds Rate & FALSE & FALSE & \\
+\hline
+FRED/TB6SMFFM & 6-Month Treasury Bill Minus Federal Funds Rate & TRUE & FALSE & \\
+\hline
+FRED/T6MFF & 6-Month Treasury Constant Maturity Minus Federal Funds Rate & TRUE & FALSE & \\
+\hline
+FRED/USPHCI & Coincident Economic Activity Index for the United States & FALSE & FALSE & \\
+\hline
+FRED/USSLIND & Leading Index for the United States & FALSE & FALSE & \\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{testing-stationarity}{%
+\section{Testing Stationarity}\label{testing-stationarity}}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\hypertarget{recessions}{%
+\section{Recessions}\label{recessions}}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-11}List of Recessions}
+\centering
+\begin{tabular}[t]{l|l}
+\hline
+Peak & Trough\\
+\hline
+1902-09-01 & 1904-08-01\\
+\hline
+1907-05-01 & 1908-06-01\\
+\hline
+1910-01-01 & 1912-01-01\\
+\hline
+1913-01-01 & 1914-12-01\\
+\hline
+1918-08-01 & 1919-03-01\\
+\hline
+1920-01-01 & 1921-07-01\\
+\hline
+1923-05-01 & 1924-07-01\\
+\hline
+1926-10-01 & 1927-11-01\\
+\hline
+1929-08-01 & 1933-03-01\\
+\hline
+1937-05-01 & 1938-06-01\\
+\hline
+1945-02-01 & 1945-10-01\\
+\hline
+1948-11-01 & 1949-10-01\\
+\hline
+1953-07-01 & 1954-05-01\\
+\hline
+1957-08-01 & 1958-04-01\\
+\hline
+1960-04-01 & 1961-02-01\\
+\hline
+1969-12-01 & 1970-11-01\\
+\hline
+1973-11-01 & 1975-03-01\\
+\hline
+1980-01-01 & 1980-07-01\\
+\hline
+1981-07-01 & 1982-11-01\\
+\hline
+1990-07-01 & 1991-03-01\\
+\hline
+2001-03-01 & 2001-11-01\\
+\hline
+2007-12-01 & 2009-06-01\\
+\hline
+2020-02-01 & 2020-08-30\\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{sp500-index}{%
+\section{S\&P500 Index}\label{sp500-index}}
+
+\begin{verbatim}
+## [1] "^GSPC"
+\end{verbatim}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-13-1.pdf}
+\caption{\label{fig:unnamed-chunk-13}\label{fig:figs}S\&P500 Price vs Recessions}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-14-1.pdf}
+\caption{\label{fig:unnamed-chunk-14}\label{fig:figs}S\&P500 Daily Returns vs Recessions}
+\end{figure}
+
+\hypertarget{national-financial-conditions-index}{%
+\section{National Financial Conditions Index}\label{national-financial-conditions-index}}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-16-1.pdf}
+\caption{\label{fig:unnamed-chunk-16}\label{fig:figs}National Financial Conditions Index vs Recessions}
+\end{figure}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+\hypertarget{industrial-production-index}{%
+\section{Industrial Production Index}\label{industrial-production-index}}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-20-1.pdf}
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-21-1.pdf}
+
+\hypertarget{real-government-consumption-expenditures-and-gross-investment}{%
+\section{Real Government Consumption Expenditures and Gross Investment}\label{real-government-consumption-expenditures-and-gross-investment}}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-23-1.pdf}
+
+\hypertarget{dollar-index}{%
+\section{Dollar Index}\label{dollar-index}}
+
+\hypertarget{trade-weighted-u.s.-dollar-index-advanced-foreign-economies-goods-and-services-dtwexafegs}{%
+\subsection{Trade Weighted U.S. Dollar Index: Advanced Foreign Economies, Goods and Services (DTWEXAFEGS)}\label{trade-weighted-u.s.-dollar-index-advanced-foreign-economies-goods-and-services-dtwexafegs}}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-25-1.pdf}
+
+\hypertarget{trade-weighted-u.s.-dollar-index-broad-goods-and-services-dtwexbgs}{%
+\subsection{Trade Weighted U.S. Dollar Index: Broad, Goods and Services (DTWEXBGS)}\label{trade-weighted-u.s.-dollar-index-broad-goods-and-services-dtwexbgs}}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-27-1.pdf}
+
+\hypertarget{trade-weighted-u.s.-dollar-index-major-currencies-goods-discontinued-dtwexm}{%
+\subsection{Trade Weighted U.S. Dollar Index: Major Currencies, Goods (DISCONTINUED) (DTWEXM)}\label{trade-weighted-u.s.-dollar-index-major-currencies-goods-discontinued-dtwexm}}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-29-1.pdf}
+
+\hypertarget{trade-weighted-u.s.-dollar-index-broad-goods-discontinued-dtwexb}{%
+\subsection{Trade Weighted U.S. Dollar Index: Broad, Goods (DISCONTINUED) (DTWEXB)}\label{trade-weighted-u.s.-dollar-index-broad-goods-discontinued-dtwexb}}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-31-1.pdf}
+
+\hypertarget{year-treasury-constant-maturity-rate-dgs10}{%
+\section{10-Year Treasury Constant Maturity Rate (DGS10)}\label{year-treasury-constant-maturity-rate-dgs10}}
+
+\hypertarget{real-gross-domestic-product-gdpc1}{%
+\section{Real Gross Domestic Product (GDPC1)}\label{real-gross-domestic-product-gdpc1}}
+
+\hypertarget{unemployment-rate-unrate}{%
+\section{Unemployment Rate (UNRATE)}\label{unemployment-rate-unrate}}
+
+====================================
+
+\hypertarget{sp500-analysis}{%
+\section{S\&P500 Analysis}\label{sp500-analysis}}
+
+\hypertarget{price-vs.recessions-line}{%
+\subsection{Price vs.~Recessions (Line)}\label{price-vs.recessions-line}}
+
+\hypertarget{returns-vs.-recessions-line}{%
+\subsection{Returns Vs. Recessions (Line)}\label{returns-vs.-recessions-line}}
+
+\hypertarget{returns-vs.-recessions-box-plot}{%
+\subsection{Returns Vs. Recessions (Box-plot)}\label{returns-vs.-recessions-box-plot}}
+
+\hypertarget{draw-downs-vs.recessions-line}{%
+\subsection{Draw-downs vs.~Recessions (Line)}\label{draw-downs-vs.recessions-line}}
+
+\hypertarget{fundamentals}{%
+\section{Fundamentals}\label{fundamentals}}
+
+\citep{carlson1997recent} uses PE Ration, Earnings, Dividends, Dividends/Payout Ratio
+\citep{brennan1998stripping} use Price-Dividends Ratio (Yield inverse), Natural Log Annual Dividends
+\citep{keimling2016predicting} uses Price-Book ratio, Shiller PE
+
+\hypertarget{sp-500-pe-ratio}{%
+\subsection{S\&P 500 PE Ratio}\label{sp-500-pe-ratio}}
+
+The S\&P 500 price-to-earnings ratio, or PE ratio, is a ratio used for evaluating the market. It measures its current value divided by the earnings of all S\&P500 companies. The S\&P500 PE ratio is also known as the price multiplier or the earnings multiplier.
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-34-1.pdf}
+\caption{\label{fig:unnamed-chunk-34}\label{fig:figs}S\&P 500 PE Ratio vs Recessions}
+\end{figure}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-35-1.pdf}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-36-1.pdf}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-37-1.pdf}
+\caption{\label{fig:unnamed-chunk-37}\label{fig:figs}S\&P500 PE Ratio ACF \& PACF}
+\end{figure}
+
+\hypertarget{sp-500-earnings-yield-inverse}{%
+\subsection{S\&P 500 Earnings Yield (inverse)}\label{sp-500-earnings-yield-inverse}}
+
+The earnings yield is an indicator that refers to the earnings for the most recent 12-month period divided by the Market value of all companies in the S\&P500. The earnings yield (which is the inverse of the P/E ratio) shows the percentage of the S\&P500 index's earnings per share.
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-39-1.pdf}
+\caption{\label{fig:unnamed-chunk-39}\label{fig:figs}S\&P 500 Earnings Yield vs Recessions}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-40-1.pdf}
+\caption{\label{fig:unnamed-chunk-40}\label{fig:figs}S\&P 500 Earnings Yield vs Recessions (Box Plot)}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-41-1.pdf}
+\caption{\label{fig:unnamed-chunk-41}\label{fig:figs}S\&P 500 Earnings Yield Change vs Recessions}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-42-1.pdf}
+\caption{\label{fig:unnamed-chunk-42}\label{fig:figs}S\&P500 Earnings Yield ACF \& PACF}
+\end{figure}
+
+\hypertarget{shiller-pe-ratio}{%
+\subsection{Shiller PE Ratio}\label{shiller-pe-ratio}}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-44-1.pdf}
+\caption{\label{fig:unnamed-chunk-44}\label{fig:figs}Shiller PE Ratio vs Recessions}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-45-1.pdf}
+\caption{\label{fig:unnamed-chunk-45}\label{fig:figs}Shiller PE Ratio vs Recessions (Box Plot)}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-46-1.pdf}
+\caption{\label{fig:unnamed-chunk-46}\label{fig:figs}Shiller PE Ratio Change vs Recessions}
+\end{figure}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-47-1.pdf}
+
+\hypertarget{sp-500-price-to-sales-ratio}{%
+\subsection{S\&P 500 Price to Sales Ratio}\label{sp-500-price-to-sales-ratio}}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-49-1.pdf}
+\caption{\label{fig:unnamed-chunk-49}\label{fig:figs}S\&P 500 Price to Sales Ratio vs Recessions}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-50-1.pdf}
+\caption{\label{fig:unnamed-chunk-50}\label{fig:figs}S\&P 500 Price to Sales Ratio vs Recessions (Box Plot)}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-51-1.pdf}
+\caption{\label{fig:unnamed-chunk-51}\label{fig:figs}S\&P 500 Price to Sales Ratio Change vs Recessions}
+\end{figure}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-52-1.pdf}
+
+\hypertarget{sp-500-price-to-book-value}{%
+\subsection{S\&P 500 Price to Book Value}\label{sp-500-price-to-book-value}}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-54-1.pdf}
+\caption{\label{fig:unnamed-chunk-54}\label{fig:figs}S\&P 500 Price to Book Value vs Recessions}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-55-1.pdf}
+\caption{\label{fig:unnamed-chunk-55}\label{fig:figs}S\&P 500 Price to Book Value vs Recessions (Box Plot)}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-56-1.pdf}
+\caption{\label{fig:unnamed-chunk-56}\label{fig:figs}S\&P 500 Price to Book Value Change vs Recessions}
+\end{figure}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-57-1.pdf}
+
+\hypertarget{sp-500-dividend-growth}{%
+\subsection{S\&P 500 Dividend Growth}\label{sp-500-dividend-growth}}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-59-1.pdf}
+\caption{\label{fig:unnamed-chunk-59}\label{fig:figs}S\&P 500 Dividend Growth vs Recessions}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-60-1.pdf}
+\caption{\label{fig:unnamed-chunk-60}\label{fig:figs}S\&P 500 Dividend Growth vs Recessions (Box Plot)}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-61-1.pdf}
+\caption{\label{fig:unnamed-chunk-61}\label{fig:figs}S\&P 500 Dividend Growth Change vs Recessions}
+\end{figure}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-62-1.pdf}
+
+\hypertarget{seasonal-analysis}{%
+\section{Seasonal Analysis}\label{seasonal-analysis}}
+
+\hypertarget{time-analysis-breakdown}{%
+\subsection{Time Analysis Breakdown}\label{time-analysis-breakdown}}
+
+\hypertarget{sarima}{%
+\subsection{SARIMA?}\label{sarima}}
+
+\hypertarget{archgarch}{%
+\subsection{ARCH/GARCH?}\label{archgarch}}
+
+\hypertarget{fourier-analysis}{%
+\subsection{Fourier Analysis}\label{fourier-analysis}}
+
+\hypertarget{technical-analysis}{%
+\section{Technical Analysis}\label{technical-analysis}}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-63-1.pdf}
+
+\hypertarget{moving-averages}{%
+\subsection{Moving Averages}\label{moving-averages}}
+
+\hypertarget{relative-strength-indicator}{%
+\subsection{Relative Strength Indicator}\label{relative-strength-indicator}}
+
+\hypertarget{commodity-channel-index}{%
+\subsection{Commodity Channel Index}\label{commodity-channel-index}}
+
+\hypertarget{politics}{%
+\section{Politics}\label{politics}}
+
+\hypertarget{days-to-next-presidential-elections}{%
+\subsection{Days to next Presidential Elections}\label{days-to-next-presidential-elections}}
+
+\begin{itemize}
+\tightlist
+\item
+  Reverse axis line chart number of days vs returns
+\item
+  Same chart color coded by party
+\end{itemize}
+
+\hypertarget{political-party}{%
+\subsection{Political Party}\label{political-party}}
+
+\begin{itemize}
+\tightlist
+\item
+  Box-plot with both parties vs returns
+\item
+  Box-plot with both parties vs dropdown value
+\item
+  Bar plot with both parties vs number of recessions
+\end{itemize}
+
+\hypertarget{economics}{%
+\section{Economics}\label{economics}}
+
+\hypertarget{national-financial-conditions-index-nfci}{%
+\subsection{National Financial Conditions Index (NFCI)}\label{national-financial-conditions-index-nfci}}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-66-1.pdf}
+\caption{\label{fig:unnamed-chunk-66}\label{fig:figs}National Financial Conditions Index vs Recessions}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-67-1.pdf}
+\caption{\label{fig:unnamed-chunk-67}\label{fig:figs}National Financial Conditions Index vs Recessions (Box Plot)}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-68-1.pdf}
+\caption{\label{fig:unnamed-chunk-68}\label{fig:figs}National Financial Conditions Index vs Recessions}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-69-1.pdf}
+\caption{\label{fig:unnamed-chunk-69-1}\label{fig:figs}National Financial Conditions Index vs.~S\&P500 returns}
+\end{figure}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-69-2.pdf}
+\caption{\label{fig:unnamed-chunk-69-2}\label{fig:figs}National Financial Conditions Index vs.~S\&P500 returns}
+\end{figure}
+
+\begin{verbatim}
+## [1] -1.07126
+\end{verbatim}
+
+\begin{verbatim}
+## [1] -0.2008375
+\end{verbatim}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-70-1.pdf}
+\caption{\label{fig:unnamed-chunk-70-1}\label{fig:figs}National Financial Conditions Index vs.~S\&P500 returns}
+\end{figure}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-70-2.pdf}
+\caption{\label{fig:unnamed-chunk-70-2}\label{fig:figs}National Financial Conditions Index vs.~S\&P500 returns}
+\end{figure}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-72-1.pdf}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-73-1.pdf}
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-74-1.pdf}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-75-1.pdf}
+
+\hypertarget{industrial-production-index-ipro}{%
+\subsection{Industrial Production Index (IPRO)}\label{industrial-production-index-ipro}}
+
+\hypertarget{government-consumption-expenditures-and-gross-investment-gce}{%
+\subsection{Government Consumption Expenditures and Gross Investment (GCE)}\label{government-consumption-expenditures-and-gross-investment-gce}}
+
+\hypertarget{unemployment-rate-unrate-1}{%
+\subsection{Unemployment Rate (UNRATE)}\label{unemployment-rate-unrate-1}}
+
+\hypertarget{real-gross-domestic-product-gdpc1-1}{%
+\subsection{Real Gross Domestic Product (GDPC1)}\label{real-gross-domestic-product-gdpc1-1}}
+
+\hypertarget{personal-saving-rate-psavert}{%
+\subsection{Personal Saving Rate (PSAVERT)}\label{personal-saving-rate-psavert}}
+
+\hypertarget{disposable-personal-income-dspi}{%
+\subsection{Disposable Personal Income (DSPI)}\label{disposable-personal-income-dspi}}
+
+\hypertarget{real-manufacturing-and-trade-industries-sales-cmrmtspl}{%
+\subsection{Real Manufacturing and Trade Industries Sales (CMRMTSPL)}\label{real-manufacturing-and-trade-industries-sales-cmrmtspl}}
+
+\hypertarget{new-private-housing-units-authorized-by-building-permits-permit}{%
+\subsection{New Private Housing Units Authorized by Building Permits (PERMIT)}\label{new-private-housing-units-authorized-by-building-permits-permit}}
+
+\hypertarget{year-treasury-constant-maturity-rate-dgs10-1}{%
+\subsection{10-Year Treasury Constant Maturity Rate (DGS10)}\label{year-treasury-constant-maturity-rate-dgs10-1}}
+
+\hypertarget{year-treasury-constant-maturity-minus-2-year-treasury-constant-maturity-t10y2y}{%
+\subsection{10-Year Treasury Constant Maturity Minus 2-Year Treasury Constant Maturity (T10Y2Y)}\label{year-treasury-constant-maturity-minus-2-year-treasury-constant-maturity-t10y2y}}
+
+\hypertarget{year-treasury-constant-maturity-minus-federal-funds-rate-t10yff}{%
+\subsection{10-Year Treasury Constant Maturity Minus Federal Funds Rate (T10YFF)}\label{year-treasury-constant-maturity-minus-federal-funds-rate-t10yff}}
+
+\hypertarget{month-treasury-bill-minus-federal-funds-rate-tb6smffm}{%
+\subsection{6-Month Treasury Bill Minus Federal Funds Rate (TB6SMFFM)}\label{month-treasury-bill-minus-federal-funds-rate-tb6smffm}}
+
+\hypertarget{month-treasury-constant-maturity-minus-federal-funds-rate-t6mff}{%
+\subsection{6-Month Treasury Constant Maturity Minus Federal Funds Rate (T6MFF)}\label{month-treasury-constant-maturity-minus-federal-funds-rate-t6mff}}
+
+\hypertarget{coincident-economic-activity-index-for-the-united-states-usphci}{%
+\subsection{Coincident Economic Activity Index for the United States (USPHCI)}\label{coincident-economic-activity-index-for-the-united-states-usphci}}
+
+\hypertarget{leading-index-for-the-united-states-usslind}{%
+\subsection{Leading Index for the United States (USSLIND)}\label{leading-index-for-the-united-states-usslind}}
+
+\hypertarget{results}{%
+\chapter{Results}\label{results}}
+
+\hypertarget{presidential-cycles-1}{%
+\section{Presidential Cycles}\label{presidential-cycles-1}}
+
+\begin{verbatim}
+## [1] "^GSPC"
+\end{verbatim}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-79-1.pdf}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-82}List of Presidents}
+\centering
+\begin{tabular}[t]{l|l|l|l|l}
+\hline
+  & President & Party & Presidency\_start & Presidency\_end\\
+\hline
+29 & Warren G. Harding & Republican & 1921-03-04 & 1923-08-02\\
+\hline
+30 & Calvin Coolidge & Republican & 1923-08-02 & 1929-03-04\\
+\hline
+31 & Herbert Hoover & Republican & 1929-03-04 & 1933-03-04\\
+\hline
+32 & Franklin D. Roosevelt & Democratic & 1933-03-04 & 1945-04-12\\
+\hline
+33 & Harry S. Truman & Democratic & 1945-04-12 & 1953-01-20\\
+\hline
+34 & Dwight D. Eisenhower & Republican & 1953-01-20 & 1961-01-20\\
+\hline
+35 & John F. Kennedy & Democratic & 1961-01-20 & 1963-11-22\\
+\hline
+36 & Lyndon B. Johnson & Democratic & 1963-11-22 & 1969-01-20\\
+\hline
+37 & Richard Nixon & Republican & 1969-01-20 & 1974-08-09\\
+\hline
+38 & Gerald Ford & Republican & 1974-08-09 & 1977-01-20\\
+\hline
+39 & Jimmy Carter & Democratic & 1977-01-20 & 1981-01-20\\
+\hline
+40 & Ronald Reagan & Republican & 1981-01-20 & 1989-01-20\\
+\hline
+41 & George H. W. Bush & Republican & 1989-01-20 & 1993-01-20\\
+\hline
+42 & Bill Clinton & Democratic & 1993-01-20 & 2001-01-20\\
+\hline
+43 & George W. Bush & Republican & 2001-01-20 & 2009-01-20\\
+\hline
+44 & Barack Obama & Democratic & 2009-01-20 & 2017-01-20\\
+\hline
+45 & Donald Trump & Republican & 2017-01-20 & 2020-11-25\\
+\hline
+\end{tabular}
+\end{table}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-86-1.pdf}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-90-1.pdf}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-92-1.pdf}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-94-1.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-94-2.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-94-3.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-94-4.pdf}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = logValue ~ date, data = df_GSPC)
+## 
+## Coefficients:
+## (Intercept)         date  
+##   4.5521489    0.0001796
+\end{verbatim}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-96-1.pdf}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-97-1.pdf}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = y ~ sin(2 * pi/per * t) + cos(2 * pi/per * t))
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.93597 -0.19359 -0.07352  0.17951  1.25356 
+## 
+## Coefficients:
+##                     Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)         0.004768   0.001874   2.544    0.011 *  
+## sin(2 * pi/per * t) 0.223227   0.002618  85.278   <2e-16 ***
+## cos(2 * pi/per * t) 0.235011   0.002682  87.628   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.286 on 23334 degrees of freedom
+## Multiple R-squared:  0.3939, Adjusted R-squared:  0.3938 
+## F-statistic:  7581 on 2 and 23334 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-97-2.pdf}
+
+\begin{verbatim}
+## [1] 12000
+\end{verbatim}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-98-1.pdf}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-99-1.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-99-2.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-99-3.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-99-4.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-99-5.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-99-6.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-99-7.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-99-8.pdf}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-100-1.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-100-2.pdf}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-101-1.pdf}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-102-1.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-102-2.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-102-3.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-102-4.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-102-5.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-102-6.pdf} \includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-102-7.pdf}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-103-1.pdf}
+\caption{\label{fig:unnamed-chunk-103}\label{fig:figs}GSPC Daily Returns vs Political Parties}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-104-1.pdf}
+\caption{\label{fig:unnamed-chunk-104}\label{fig:figs}GSPC Monthly Returns vs Political Parties}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-105-1.pdf}
+\caption{\label{fig:unnamed-chunk-105}\label{fig:figs}GSPC Quarterly Returns vs Political Parties}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-106-1.pdf}
+\caption{\label{fig:unnamed-chunk-106}\label{fig:figs}GSPC Yearly Returns vs Political Parties}
+\end{figure}
+
+\hypertarget{moving-average-classification}{%
+\section{Moving Average Classification}\label{moving-average-classification}}
+
+\begin{verbatim}
+## [1] "^GSPC"
+\end{verbatim}
+
+\includegraphics{MichaelAzer_thesis_files/figure-latex/unnamed-chunk-112-1.pdf}
+
+\hypertarget{conclusion}{%
+\chapter{Conclusion}\label{conclusion}}
+
+\hypertarget{summary}{%
+\section{Summary}\label{summary}}
+
+This project aims at discovering stock price cycles using machine learning techniques. Such research with a holistic view of the market should be a significant addition to the body of knowledge, and consequently to the financial industry.
+
+\hypertarget{further-research}{%
+\section{Further Research}\label{further-research}}
+
+\hypertarget{sp500-market-sectors}{%
+\subsection{S\&P500 Market Sectors}\label{sp500-market-sectors}}
+
+Further research could be done by breaking down the market into the 11 market sectors defined by MSCI and S\&P. This way market sector cycles could be classified into leading and lagging, and can therefore be used as hedging strategies in different market phases.
+
+\hypertarget{consensus}{%
+\subsection{Consensus}\label{consensus}}
+
+This research has an enormous amount of data features embedded in one dataset. Another method which may be tested against this is to set up the research as an agent-based simulation. Where the researcher would build several ``agents'', and each agent would focus only on one aspect of the data. So for example an agent would focus on economic effects, while another would only accommodate for fundamental analysis, etc. Afterwards each agent would try to detect the market cycle according to its given data. Finally, a voting mechanism would be put in place to reach consensus and correctly label each market cycle.
+
+The inclusion of consensus analysis in financial applications has already been taking place like the recent study where the Black-Scholes model has been studied against an agent-based model where traders (``agents'') update their beliefs about the true implied volatility based on the opinions of other traders. \citep{vaidya2018learning}
+
+Adding a consensus aspect to the study would most likely yield to better results, as well as better understanding of the factors affecting market cycles.
+
+\hypertarget{fourier-analysis-matching}{%
+\subsection{Fourier Analysis matching}\label{fourier-analysis-matching}}
+
+During the application of wavelet analysis and specifically the fourier transformations. It was found that many cycles strongly affect the current stock market movement.
+
+\begin{figure}
+\centering
+\includegraphics{data/8fourier.png}
+\caption{\label{fig:unnamed-chunk-113}Fourier Analysis of the S\&P500 (8 Waves)}
+\end{figure}
+
+A great research topic would be to analyze each cycle, and try to match it to real events or factors. For example, does the 4-year cycle match the US presidential cycle? does the 60-year cycle match Kondratiev's technological cycle? \citep{mager1987kondratiev} What about other cycles like Schumpeter, Kuznets, Juglar and Kitchin cycles, can they also be detected?
+
+This topic would be great to make sense of the data, as well as find scientific evidence and proof to many speculations.
+
+\hypertarget{fourier-analysis-contractionexpansion}{%
+\subsection{Fourier Analysis Contraction/Expansion}\label{fourier-analysis-contractionexpansion}}
+
+While studying the fourier analysis of the S\&P500, the cycle that ranked the highest in the spectrum analysis matched the S\&P500 to a great extent. Starting the mid-80s, the cycle started to shift and show great discrepancy.
+
+\begin{figure}
+\centering
+\includegraphics{data/fourier.png}
+\caption{\label{fig:unnamed-chunk-114}Fourier Analysis of the S\&P500 (1 Wave) Showing Discrepancy}
+\end{figure}
+
+Research in this area could take place, in order to study whether cetain contractions and expansions have been taking place in the general market cycle, as well as the reasons behind it.
+
+\hypertarget{ref}{%
+\chapter{References}\label{ref}}
+
+\bibliography{book.bib,packages.bib}
+
+\end{document}

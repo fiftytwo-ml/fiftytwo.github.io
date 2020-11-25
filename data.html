@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Data Preparation | An Intelligent Market Cycle Detection System</title>
+  <meta name="description" content="Chapter 4 Data Preparation | An Intelligent Market Cycle Detection System" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Data Preparation | An Intelligent Market Cycle Detection System" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="michaelazer/thesis" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Data Preparation | An Intelligent Market Cycle Detection System" />
+  
+  
+  
+
+<meta name="author" content="Michael S. Azer" />
+
+
+<meta name="date" content="2020-11-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="methodology.html"/>
+<link rel="next" href="results.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">htttps://www.michaelazer.com/thesis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#statement-of-the-problem"><i class="fa fa-check"></i><b>1.1</b> Statement of the Problem</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#objective"><i class="fa fa-check"></i><b>1.2</b> Objective</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#significance"><i class="fa fa-check"></i><b>1.3</b> Significance</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="litrev.html"><a href="litrev.html"><i class="fa fa-check"></i><b>2</b> Literature Review</a><ul>
+<li class="chapter" data-level="2.1" data-path="litrev.html"><a href="litrev.html#duration-dependence"><i class="fa fa-check"></i><b>2.1</b> Duration-dependence</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="litrev.html"><a href="litrev.html#definition"><i class="fa fa-check"></i><b>2.1.1</b> Definition</a></li>
+<li class="chapter" data-level="2.1.2" data-path="litrev.html"><a href="litrev.html#turning-point-detection"><i class="fa fa-check"></i><b>2.1.2</b> Turning-point Detection</a></li>
+<li class="chapter" data-level="2.1.3" data-path="litrev.html"><a href="litrev.html#cycle-length"><i class="fa fa-check"></i><b>2.1.3</b> Cycle Length</a></li>
+<li class="chapter" data-level="2.1.4" data-path="litrev.html"><a href="litrev.html#cycle-synchronization"><i class="fa fa-check"></i><b>2.1.4</b> Cycle Synchronization</a></li>
+<li class="chapter" data-level="2.1.5" data-path="litrev.html"><a href="litrev.html#bubbles-and-recessions"><i class="fa fa-check"></i><b>2.1.5</b> Bubbles and Recessions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="litrev.html"><a href="litrev.html#established-cycles"><i class="fa fa-check"></i><b>2.2</b> Established Cycles</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="litrev.html"><a href="litrev.html#kondratiev"><i class="fa fa-check"></i><b>2.2.1</b> Kondratiev</a></li>
+<li class="chapter" data-level="2.2.2" data-path="litrev.html"><a href="litrev.html#kuznets"><i class="fa fa-check"></i><b>2.2.2</b> Kuznets</a></li>
+<li class="chapter" data-level="2.2.3" data-path="litrev.html"><a href="litrev.html#juglar"><i class="fa fa-check"></i><b>2.2.3</b> Juglar</a></li>
+<li class="chapter" data-level="2.2.4" data-path="litrev.html"><a href="litrev.html#kitchin"><i class="fa fa-check"></i><b>2.2.4</b> Kitchin</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="litrev.html"><a href="litrev.html#classification-of-sp500"><i class="fa fa-check"></i><b>2.3</b> Classification of S&amp;P500</a></li>
+<li class="chapter" data-level="2.4" data-path="litrev.html"><a href="litrev.html#features-to-determine-phases"><i class="fa fa-check"></i><b>2.4</b> Features to determine phases</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="litrev.html"><a href="litrev.html#political-events"><i class="fa fa-check"></i><b>2.4.1</b> Political Events</a></li>
+<li class="chapter" data-level="2.4.2" data-path="litrev.html"><a href="litrev.html#economic-factors"><i class="fa fa-check"></i><b>2.4.2</b> Economic Factors</a></li>
+<li class="chapter" data-level="2.4.3" data-path="litrev.html"><a href="litrev.html#health-shocks-pandemics-and-epidemics"><i class="fa fa-check"></i><b>2.4.3</b> Health Shocks (Pandemics and Epidemics)</a></li>
+<li class="chapter" data-level="2.4.4" data-path="litrev.html"><a href="litrev.html#financial-indicators"><i class="fa fa-check"></i><b>2.4.4</b> Financial Indicators</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="litrev.html"><a href="litrev.html#importance-of-features"><i class="fa fa-check"></i><b>2.5</b> Importance of features</a></li>
+<li class="chapter" data-level="2.6" data-path="litrev.html"><a href="litrev.html#market-prediction"><i class="fa fa-check"></i><b>2.6</b> Market prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="methodology.html"><a href="methodology.html"><i class="fa fa-check"></i><b>3</b> Methodology</a><ul>
+<li class="chapter" data-level="3.1" data-path="methodology.html"><a href="methodology.html#data"><i class="fa fa-check"></i><b>3.1</b> Data</a></li>
+<li class="chapter" data-level="3.2" data-path="methodology.html"><a href="methodology.html#techniques"><i class="fa fa-check"></i><b>3.2</b> Techniques</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="methodology.html"><a href="methodology.html#data"><i class="fa fa-check"></i><b>4</b> Data Preparation</a><ul>
+<li class="chapter" data-level="4.1" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>4.1</b> Factors Tested</a></li>
+<li class="chapter" data-level="4.2" data-path="data.html"><a href="data.html#testing-stationarity"><i class="fa fa-check"></i><b>4.2</b> Testing Stationarity</a></li>
+<li class="chapter" data-level="4.3" data-path="data.html"><a href="data.html#recessions"><i class="fa fa-check"></i><b>4.3</b> Recessions</a></li>
+<li class="chapter" data-level="4.4" data-path="data.html"><a href="data.html#sp500-index"><i class="fa fa-check"></i><b>4.4</b> S&amp;P500 Index</a></li>
+<li class="chapter" data-level="4.5" data-path="data.html"><a href="data.html#national-financial-conditions-index"><i class="fa fa-check"></i><b>4.5</b> National Financial Conditions Index</a></li>
+<li class="chapter" data-level="4.6" data-path="data.html"><a href="data.html#industrial-production-index"><i class="fa fa-check"></i><b>4.6</b> Industrial Production Index</a></li>
+<li class="chapter" data-level="4.7" data-path="data.html"><a href="data.html#real-government-consumption-expenditures-and-gross-investment"><i class="fa fa-check"></i><b>4.7</b> Real Government Consumption Expenditures and Gross Investment</a></li>
+<li class="chapter" data-level="4.8" data-path="data.html"><a href="data.html#dollar-index"><i class="fa fa-check"></i><b>4.8</b> Dollar Index</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="data.html"><a href="data.html#trade-weighted-u.s.-dollar-index-advanced-foreign-economies-goods-and-services-dtwexafegs"><i class="fa fa-check"></i><b>4.8.1</b> Trade Weighted U.S. Dollar Index: Advanced Foreign Economies, Goods and Services (DTWEXAFEGS)</a></li>
+<li class="chapter" data-level="4.8.2" data-path="data.html"><a href="data.html#trade-weighted-u.s.-dollar-index-broad-goods-and-services-dtwexbgs"><i class="fa fa-check"></i><b>4.8.2</b> Trade Weighted U.S. Dollar Index: Broad, Goods and Services (DTWEXBGS)</a></li>
+<li class="chapter" data-level="4.8.3" data-path="data.html"><a href="data.html#trade-weighted-u.s.-dollar-index-major-currencies-goods-discontinued-dtwexm"><i class="fa fa-check"></i><b>4.8.3</b> Trade Weighted U.S. Dollar Index: Major Currencies, Goods (DISCONTINUED) (DTWEXM)</a></li>
+<li class="chapter" data-level="4.8.4" data-path="data.html"><a href="data.html#trade-weighted-u.s.-dollar-index-broad-goods-discontinued-dtwexb"><i class="fa fa-check"></i><b>4.8.4</b> Trade Weighted U.S. Dollar Index: Broad, Goods (DISCONTINUED) (DTWEXB)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="data.html"><a href="data.html#year-treasury-constant-maturity-rate-dgs10"><i class="fa fa-check"></i><b>4.9</b> 10-Year Treasury Constant Maturity Rate (DGS10)</a></li>
+<li class="chapter" data-level="4.10" data-path="data.html"><a href="data.html#real-gross-domestic-product-gdpc1"><i class="fa fa-check"></i><b>4.10</b> Real Gross Domestic Product (GDPC1)</a></li>
+<li class="chapter" data-level="4.11" data-path="data.html"><a href="data.html#unemployment-rate-unrate"><i class="fa fa-check"></i><b>4.11</b> Unemployment Rate (UNRATE)</a></li>
+<li class="chapter" data-level="4.12" data-path="data.html"><a href="data.html#sp500-analysis"><i class="fa fa-check"></i><b>4.12</b> S&amp;P500 Analysis</a><ul>
+<li class="chapter" data-level="4.12.1" data-path="data.html"><a href="data.html#price-vs.recessions-line"><i class="fa fa-check"></i><b>4.12.1</b> Price vs. Recessions (Line)</a></li>
+<li class="chapter" data-level="4.12.2" data-path="data.html"><a href="data.html#returns-vs.-recessions-line"><i class="fa fa-check"></i><b>4.12.2</b> Returns Vs. Recessions (Line)</a></li>
+<li class="chapter" data-level="4.12.3" data-path="data.html"><a href="data.html#returns-vs.-recessions-box-plot"><i class="fa fa-check"></i><b>4.12.3</b> Returns Vs. Recessions (Box-plot)</a></li>
+<li class="chapter" data-level="4.12.4" data-path="data.html"><a href="data.html#draw-downs-vs.recessions-line"><i class="fa fa-check"></i><b>4.12.4</b> Draw-downs vs. Recessions (Line)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.13" data-path="data.html"><a href="data.html#fundamentals"><i class="fa fa-check"></i><b>4.13</b> Fundamentals</a><ul>
+<li class="chapter" data-level="4.13.1" data-path="data.html"><a href="data.html#sp-500-pe-ratio"><i class="fa fa-check"></i><b>4.13.1</b> S&amp;P 500 PE Ratio</a></li>
+<li class="chapter" data-level="4.13.2" data-path="data.html"><a href="data.html#sp-500-earnings-yield-inverse"><i class="fa fa-check"></i><b>4.13.2</b> S&amp;P 500 Earnings Yield (inverse)</a></li>
+<li class="chapter" data-level="4.13.3" data-path="data.html"><a href="data.html#shiller-pe-ratio"><i class="fa fa-check"></i><b>4.13.3</b> Shiller PE Ratio</a></li>
+<li class="chapter" data-level="4.13.4" data-path="data.html"><a href="data.html#sp-500-price-to-sales-ratio"><i class="fa fa-check"></i><b>4.13.4</b> S&amp;P 500 Price to Sales Ratio</a></li>
+<li class="chapter" data-level="4.13.5" data-path="data.html"><a href="data.html#sp-500-price-to-book-value"><i class="fa fa-check"></i><b>4.13.5</b> S&amp;P 500 Price to Book Value</a></li>
+<li class="chapter" data-level="4.13.6" data-path="data.html"><a href="data.html#sp-500-dividend-growth"><i class="fa fa-check"></i><b>4.13.6</b> S&amp;P 500 Dividend Growth</a></li>
+</ul></li>
+<li class="chapter" data-level="4.14" data-path="data.html"><a href="data.html#seasonal-analysis"><i class="fa fa-check"></i><b>4.14</b> Seasonal Analysis</a><ul>
+<li class="chapter" data-level="4.14.1" data-path="data.html"><a href="data.html#time-analysis-breakdown"><i class="fa fa-check"></i><b>4.14.1</b> Time Analysis Breakdown</a></li>
+<li class="chapter" data-level="4.14.2" data-path="data.html"><a href="data.html#sarima"><i class="fa fa-check"></i><b>4.14.2</b> SARIMA?</a></li>
+<li class="chapter" data-level="4.14.3" data-path="data.html"><a href="data.html#archgarch"><i class="fa fa-check"></i><b>4.14.3</b> ARCH/GARCH?</a></li>
+<li class="chapter" data-level="4.14.4" data-path="data.html"><a href="data.html#fourier-analysis"><i class="fa fa-check"></i><b>4.14.4</b> Fourier Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4.15" data-path="data.html"><a href="data.html#technical-analysis"><i class="fa fa-check"></i><b>4.15</b> Technical Analysis</a><ul>
+<li class="chapter" data-level="4.15.1" data-path="data.html"><a href="data.html#moving-averages"><i class="fa fa-check"></i><b>4.15.1</b> Moving Averages</a></li>
+<li class="chapter" data-level="4.15.2" data-path="data.html"><a href="data.html#relative-strength-indicator"><i class="fa fa-check"></i><b>4.15.2</b> Relative Strength Indicator</a></li>
+<li class="chapter" data-level="4.15.3" data-path="data.html"><a href="data.html#commodity-channel-index"><i class="fa fa-check"></i><b>4.15.3</b> Commodity Channel Index</a></li>
+</ul></li>
+<li class="chapter" data-level="4.16" data-path="data.html"><a href="data.html#politics"><i class="fa fa-check"></i><b>4.16</b> Politics</a><ul>
+<li class="chapter" data-level="4.16.1" data-path="data.html"><a href="data.html#days-to-next-presidential-elections"><i class="fa fa-check"></i><b>4.16.1</b> Days to next Presidential Elections</a></li>
+<li class="chapter" data-level="4.16.2" data-path="data.html"><a href="data.html#political-party"><i class="fa fa-check"></i><b>4.16.2</b> Political Party</a></li>
+</ul></li>
+<li class="chapter" data-level="4.17" data-path="data.html"><a href="data.html#economics"><i class="fa fa-check"></i><b>4.17</b> Economics</a><ul>
+<li class="chapter" data-level="4.17.1" data-path="data.html"><a href="data.html#national-financial-conditions-index-nfci"><i class="fa fa-check"></i><b>4.17.1</b> National Financial Conditions Index (NFCI)</a></li>
+<li class="chapter" data-level="4.17.2" data-path="data.html"><a href="data.html#industrial-production-index-ipro"><i class="fa fa-check"></i><b>4.17.2</b> Industrial Production Index (IPRO)</a></li>
+<li class="chapter" data-level="4.17.3" data-path="data.html"><a href="data.html#government-consumption-expenditures-and-gross-investment-gce"><i class="fa fa-check"></i><b>4.17.3</b> Government Consumption Expenditures and Gross Investment (GCE)</a></li>
+<li class="chapter" data-level="4.17.4" data-path="data.html"><a href="data.html#unemployment-rate-unrate-1"><i class="fa fa-check"></i><b>4.17.4</b> Unemployment Rate (UNRATE)</a></li>
+<li class="chapter" data-level="4.17.5" data-path="data.html"><a href="data.html#real-gross-domestic-product-gdpc1-1"><i class="fa fa-check"></i><b>4.17.5</b> Real Gross Domestic Product (GDPC1)</a></li>
+<li class="chapter" data-level="4.17.6" data-path="data.html"><a href="data.html#personal-saving-rate-psavert"><i class="fa fa-check"></i><b>4.17.6</b> Personal Saving Rate (PSAVERT)</a></li>
+<li class="chapter" data-level="4.17.7" data-path="data.html"><a href="data.html#disposable-personal-income-dspi"><i class="fa fa-check"></i><b>4.17.7</b> Disposable Personal Income (DSPI)</a></li>
+<li class="chapter" data-level="4.17.8" data-path="data.html"><a href="data.html#real-manufacturing-and-trade-industries-sales-cmrmtspl"><i class="fa fa-check"></i><b>4.17.8</b> Real Manufacturing and Trade Industries Sales (CMRMTSPL)</a></li>
+<li class="chapter" data-level="4.17.9" data-path="data.html"><a href="data.html#new-private-housing-units-authorized-by-building-permits-permit"><i class="fa fa-check"></i><b>4.17.9</b> New Private Housing Units Authorized by Building Permits (PERMIT)</a></li>
+<li class="chapter" data-level="4.17.10" data-path="data.html"><a href="data.html#year-treasury-constant-maturity-rate-dgs10-1"><i class="fa fa-check"></i><b>4.17.10</b> 10-Year Treasury Constant Maturity Rate (DGS10)</a></li>
+<li class="chapter" data-level="4.17.11" data-path="data.html"><a href="data.html#year-treasury-constant-maturity-minus-2-year-treasury-constant-maturity-t10y2y"><i class="fa fa-check"></i><b>4.17.11</b> 10-Year Treasury Constant Maturity Minus 2-Year Treasury Constant Maturity (T10Y2Y)</a></li>
+<li class="chapter" data-level="4.17.12" data-path="data.html"><a href="data.html#year-treasury-constant-maturity-minus-federal-funds-rate-t10yff"><i class="fa fa-check"></i><b>4.17.12</b> 10-Year Treasury Constant Maturity Minus Federal Funds Rate (T10YFF)</a></li>
+<li class="chapter" data-level="4.17.13" data-path="data.html"><a href="data.html#month-treasury-bill-minus-federal-funds-rate-tb6smffm"><i class="fa fa-check"></i><b>4.17.13</b> 6-Month Treasury Bill Minus Federal Funds Rate (TB6SMFFM)</a></li>
+<li class="chapter" data-level="4.17.14" data-path="data.html"><a href="data.html#month-treasury-constant-maturity-minus-federal-funds-rate-t6mff"><i class="fa fa-check"></i><b>4.17.14</b> 6-Month Treasury Constant Maturity Minus Federal Funds Rate (T6MFF)</a></li>
+<li class="chapter" data-level="4.17.15" data-path="data.html"><a href="data.html#coincident-economic-activity-index-for-the-united-states-usphci"><i class="fa fa-check"></i><b>4.17.15</b> Coincident Economic Activity Index for the United States (USPHCI)</a></li>
+<li class="chapter" data-level="4.17.16" data-path="data.html"><a href="data.html#leading-index-for-the-united-states-usslind"><i class="fa fa-check"></i><b>4.17.16</b> Leading Index for the United States (USSLIND)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a><ul>
+<li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#presidential-cycles-1"><i class="fa fa-check"></i><b>5.1</b> Presidential Cycles</a></li>
+<li class="chapter" data-level="5.2" data-path="results.html"><a href="results.html#moving-average-classification"><i class="fa fa-check"></i><b>5.2</b> Moving Average Classification</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a><ul>
+<li class="chapter" data-level="6.1" data-path="conclusion.html"><a href="conclusion.html#summary"><i class="fa fa-check"></i><b>6.1</b> Summary</a></li>
+<li class="chapter" data-level="6.2" data-path="conclusion.html"><a href="conclusion.html#further-research"><i class="fa fa-check"></i><b>6.2</b> Further Research</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="conclusion.html"><a href="conclusion.html#sp500-market-sectors"><i class="fa fa-check"></i><b>6.2.1</b> S&amp;P500 Market Sectors</a></li>
+<li class="chapter" data-level="6.2.2" data-path="conclusion.html"><a href="conclusion.html#consensus"><i class="fa fa-check"></i><b>6.2.2</b> Consensus</a></li>
+<li class="chapter" data-level="6.2.3" data-path="conclusion.html"><a href="conclusion.html#fourier-analysis-matching"><i class="fa fa-check"></i><b>6.2.3</b> Fourier Analysis matching</a></li>
+<li class="chapter" data-level="6.2.4" data-path="conclusion.html"><a href="conclusion.html#fourier-analysis-contractionexpansion"><i class="fa fa-check"></i><b>6.2.4</b> Fourier Analysis Contraction/Expansion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ref.html"><a href="ref.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://www.michaelazer.com" target="blank">Copyright &copy; 2020 by Michael Azer</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Intelligent Market Cycle Detection System</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Data Preparation</h1>
+<blockquote>
+“If you torture the data long enough, it will confess.”
+<footer>
+— Ronald Caase, Economist (1910-2013)
+</footer>
+</blockquote>
+<p>There is mast amount of data available publicly from many reliable sources. This data ranges market, fundamental, economic, and political data. The aim of this section of the research is to curate and manipulate the different available data to find viable indicators of the current market cycle.</p>
+<!-- ```{r} -->
+<!-- getSymbols("NFCI", src="FRED") -->
+<!-- indicator <- addRec(NFCI, recessions) -->
+<!-- nfci_df <- lags_indicator(indicator,GSPC) -->
+<!-- head(nfci_df) -->
+<!-- ggcorrplot(cor(nfci_df)) -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- nfci2 <- Quandl("FRED/NFCI") -->
+<!-- indicator <- addRec(nfci2, recessions) -->
+<!-- nfci_df2 <- lags_indicator(indicator,GSPC) -->
+<!-- head(nfci_df2) -->
+<!-- ggcorrplot(cor(nfci_df2)) -->
+<!-- ``` -->
+<div id="factors-tested" class="section level2">
+<h2><span class="header-section-number">4.1</span> Factors Tested</h2>
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-9">Table 4.1: </span>List of factors
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Factor
+</th>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:left;">
+Stationary
+</th>
+<th style="text-align:left;">
+Linear
+</th>
+<th style="text-align:left;">
+Chart
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+FRED/NFCI
+</td>
+<td style="text-align:left;width: 5cm; ">
+National Financial Conditions Index
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRED/INDPRO
+</td>
+<td style="text-align:left;width: 5cm; ">
+Industrial Production Index
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRED/GCE
+</td>
+<td style="text-align:left;width: 5cm; ">
+Government Consumption Expenditures and Gross Investment
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRED/UNRATE
+</td>
+<td style="text-align:left;width: 5cm; ">
+Unemployment Rate
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRED/GDPC1
+</td>
+<td style="text-align:left;width: 5cm; ">
+Real Gross Domestic Product
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRED/PSAVERT
+</td>
+<td style="text-align:left;width: 5cm; ">
+Personal Saving Rate
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRED/DSPI
+</td>
+<td style="text-align:left;width: 5cm; ">
+Disposable Personal Income
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRED/CMRMTSPL
+</td>
+<td style="text-align:left;width: 5cm; ">
+Real Manufacturing and Trade Industries Sales
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRED/PERMIT
+</td>
+<td style="text-align:left;width: 5cm; ">
+New Private Housing Units Authorized by Building Permits
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRED/DGS10
+</td>
+<td style="text-align:left;width: 5cm; ">
+10-Year Treasury Constant Maturity Rate
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRED/T10Y2Y
+</td>
+<td style="text-align:left;width: 5cm; ">
+10-Year Treasury Constant Maturity Minus 2-Year Treasury Constant Maturity
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRED/T10YFF
+</td>
+<td style="text-align:left;width: 5cm; ">
+10-Year Treasury Constant Maturity Minus Federal Funds Rate
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRED/TB6SMFFM
+</td>
+<td style="text-align:left;width: 5cm; ">
+6-Month Treasury Bill Minus Federal Funds Rate
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRED/T6MFF
+</td>
+<td style="text-align:left;width: 5cm; ">
+6-Month Treasury Constant Maturity Minus Federal Funds Rate
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRED/USPHCI
+</td>
+<td style="text-align:left;width: 5cm; ">
+Coincident Economic Activity Index for the United States
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRED/USSLIND
+</td>
+<td style="text-align:left;width: 5cm; ">
+Leading Index for the United States
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="testing-stationarity" class="section level2">
+<h2><span class="header-section-number">4.2</span> Testing Stationarity</h2>
+<pre><code>## [1] TRUE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="recessions" class="section level2">
+<h2><span class="header-section-number">4.3</span> Recessions</h2>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-11">Table 4.2: </span>List of Recessions
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Peak
+</th>
+<th style="text-align:left;">
+Trough
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1902-09-01
+</td>
+<td style="text-align:left;">
+1904-08-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1907-05-01
+</td>
+<td style="text-align:left;">
+1908-06-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1910-01-01
+</td>
+<td style="text-align:left;">
+1912-01-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1913-01-01
+</td>
+<td style="text-align:left;">
+1914-12-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1918-08-01
+</td>
+<td style="text-align:left;">
+1919-03-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1920-01-01
+</td>
+<td style="text-align:left;">
+1921-07-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1923-05-01
+</td>
+<td style="text-align:left;">
+1924-07-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1926-10-01
+</td>
+<td style="text-align:left;">
+1927-11-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1929-08-01
+</td>
+<td style="text-align:left;">
+1933-03-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1937-05-01
+</td>
+<td style="text-align:left;">
+1938-06-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1945-02-01
+</td>
+<td style="text-align:left;">
+1945-10-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1948-11-01
+</td>
+<td style="text-align:left;">
+1949-10-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1953-07-01
+</td>
+<td style="text-align:left;">
+1954-05-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1957-08-01
+</td>
+<td style="text-align:left;">
+1958-04-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1960-04-01
+</td>
+<td style="text-align:left;">
+1961-02-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1969-12-01
+</td>
+<td style="text-align:left;">
+1970-11-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1973-11-01
+</td>
+<td style="text-align:left;">
+1975-03-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1980-01-01
+</td>
+<td style="text-align:left;">
+1980-07-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1981-07-01
+</td>
+<td style="text-align:left;">
+1982-11-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1990-07-01
+</td>
+<td style="text-align:left;">
+1991-03-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2001-03-01
+</td>
+<td style="text-align:left;">
+2001-11-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2007-12-01
+</td>
+<td style="text-align:left;">
+2009-06-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2020-02-01
+</td>
+<td style="text-align:left;">
+2020-08-30
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sp500-index" class="section level2">
+<h2><span class="header-section-number">4.4</span> S&amp;P500 Index</h2>
+<pre><code>## [1] &quot;^GSPC&quot;</code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-13"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-13-1.png" alt="\label{fig:figs}S&amp;P500 Price vs Recessions" width="672" />
+<p class="caption">
+Figure 4.1: S&amp;P500 Price vs Recessions
+</p>
+</div>
+<div class="figure"><span id="fig:unnamed-chunk-14"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-14-1.png" alt="\label{fig:figs}S&amp;P500 Daily Returns vs Recessions" width="672" />
+<p class="caption">
+Figure 4.2: S&amp;P500 Daily Returns vs Recessions
+</p>
+</div>
+</div>
+<div id="national-financial-conditions-index" class="section level2">
+<h2><span class="header-section-number">4.5</span> National Financial Conditions Index</h2>
+<div class="figure"><span id="fig:unnamed-chunk-16"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-16-1.png" alt="\label{fig:figs}National Financial Conditions Index vs Recessions" width="672" />
+<p class="caption">
+Figure 4.3: National Financial Conditions Index vs Recessions
+</p>
+</div>
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE} -->
+<!-- new_df <- lags_indicator(NFCI,GSPC) -->
+<!-- ggcorrplot(cor(new_df), lab = FALSE, type = "lower", p.mat = cor_pmat(new_df), tl.cex = 7) + -->
+<!--   labs(title="Correlation between S&P500 and Lags of NFCI", -->
+<!--       subtitle = paste("6 months lags (", guess_period(NFCI),")"), -->
+<!--       caption = "*The X indicates rejected hypothesis at the 95% significance") + -->
+<!--   theme(axis.text.x = element_blank(), -->
+<!--         plot.title = element_text(hjust=0.5), -->
+<!--         plot.subtitle = element_text(hjust=0.5), -->
+<!--         plot.caption = element_text(hjust=0.5)) -->
+<!-- ``` -->
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+</div>
+<div id="industrial-production-index" class="section level2">
+<h2><span class="header-section-number">4.6</span> Industrial Production Index</h2>
+<div class="figure"><span id="fig:unnamed-chunk-20"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-20-1.png" alt="\label{fig:figs}Industrial Production Index vs Recessions" width="672" />
+<p class="caption">
+Figure 4.4: Industrial Production Index vs Recessions
+</p>
+</div>
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+</div>
+<div id="real-government-consumption-expenditures-and-gross-investment" class="section level2">
+<h2><span class="header-section-number">4.7</span> Real Government Consumption Expenditures and Gross Investment</h2>
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+</div>
+<div id="dollar-index" class="section level2">
+<h2><span class="header-section-number">4.8</span> Dollar Index</h2>
+<div id="trade-weighted-u.s.-dollar-index-advanced-foreign-economies-goods-and-services-dtwexafegs" class="section level3">
+<h3><span class="header-section-number">4.8.1</span> Trade Weighted U.S. Dollar Index: Advanced Foreign Economies, Goods and Services (DTWEXAFEGS)</h3>
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+</div>
+<div id="trade-weighted-u.s.-dollar-index-broad-goods-and-services-dtwexbgs" class="section level3">
+<h3><span class="header-section-number">4.8.2</span> Trade Weighted U.S. Dollar Index: Broad, Goods and Services (DTWEXBGS)</h3>
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+</div>
+<div id="trade-weighted-u.s.-dollar-index-major-currencies-goods-discontinued-dtwexm" class="section level3">
+<h3><span class="header-section-number">4.8.3</span> Trade Weighted U.S. Dollar Index: Major Currencies, Goods (DISCONTINUED) (DTWEXM)</h3>
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+</div>
+<div id="trade-weighted-u.s.-dollar-index-broad-goods-discontinued-dtwexb" class="section level3">
+<h3><span class="header-section-number">4.8.4</span> Trade Weighted U.S. Dollar Index: Broad, Goods (DISCONTINUED) (DTWEXB)</h3>
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+</div>
+</div>
+<div id="year-treasury-constant-maturity-rate-dgs10" class="section level2">
+<h2><span class="header-section-number">4.9</span> 10-Year Treasury Constant Maturity Rate (DGS10)</h2>
+</div>
+<div id="real-gross-domestic-product-gdpc1" class="section level2">
+<h2><span class="header-section-number">4.10</span> Real Gross Domestic Product (GDPC1)</h2>
+</div>
+<div id="unemployment-rate-unrate" class="section level2">
+<h2><span class="header-section-number">4.11</span> Unemployment Rate (UNRATE)</h2>
+<p>====================================</p>
+</div>
+<div id="sp500-analysis" class="section level2">
+<h2><span class="header-section-number">4.12</span> S&amp;P500 Analysis</h2>
+<div id="price-vs.recessions-line" class="section level3">
+<h3><span class="header-section-number">4.12.1</span> Price vs. Recessions (Line)</h3>
+</div>
+<div id="returns-vs.-recessions-line" class="section level3">
+<h3><span class="header-section-number">4.12.2</span> Returns Vs. Recessions (Line)</h3>
+</div>
+<div id="returns-vs.-recessions-box-plot" class="section level3">
+<h3><span class="header-section-number">4.12.3</span> Returns Vs. Recessions (Box-plot)</h3>
+</div>
+<div id="draw-downs-vs.recessions-line" class="section level3">
+<h3><span class="header-section-number">4.12.4</span> Draw-downs vs. Recessions (Line)</h3>
+</div>
+</div>
+<div id="fundamentals" class="section level2">
+<h2><span class="header-section-number">4.13</span> Fundamentals</h2>
+<p><span class="citation">(Carlson, Sargent, and others <a href="#ref-carlson1997recent">1997</a>)</span> uses PE Ration, Earnings, Dividends, Dividends/Payout Ratio
+<span class="citation">(Brennan <a href="#ref-brennan1998stripping">1998</a>)</span> use Price-Dividends Ratio (Yield inverse), Natural Log Annual Dividends
+<span class="citation">(Keimling <a href="#ref-keimling2016predicting">2016</a>)</span> uses Price-Book ratio, Shiller PE</p>
+<div id="sp-500-pe-ratio" class="section level3">
+<h3><span class="header-section-number">4.13.1</span> S&amp;P 500 PE Ratio</h3>
+<p>The S&amp;P 500 price-to-earnings ratio, or PE ratio, is a ratio used for evaluating the market. It measures its current value divided by the earnings of all S&amp;P500 companies. The S&amp;P500 PE ratio is also known as the price multiplier or the earnings multiplier.</p>
+<div class="figure"><span id="fig:unnamed-chunk-34"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-34-1.png" alt="\label{fig:figs}S&amp;P 500 PE Ratio vs Recessions" width="672" />
+<p class="caption">
+Figure 4.5: S&amp;P 500 PE Ratio vs Recessions
+</p>
+</div>
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="\\label{fig:figs}S&P500 PE Ratio Correlation Plot"} -->
+<!-- new_df <- lags_indicator(indicator[indicator$Date>=min(time(GSPC)),],GSPC) -->
+<!-- ggcorrplot(cor(new_df), lab = FALSE, type = "lower", p.mat = cor_pmat(new_df), tl.cex = 7) + -->
+<!--   labs(title="Correlation between S&P500 and Lags of S&P 500 PE Ratio",  -->
+<!--        subtitle = paste("6 months lags (", guess_period(indicator),")"), -->
+<!--        caption = "*The X indicates rejected hypothesis at the 95% significance") + -->
+<!--     theme(axis.text.x = element_blank(), -->
+<!--           plot.title = element_text(hjust=0.5), -->
+<!--           plot.subtitle = element_text(hjust=0.5), -->
+<!--           plot.caption = element_text(hjust=0.5)) -->
+<!-- ``` -->
+<div class="figure"><span id="fig:unnamed-chunk-37"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-37-1.png" alt="\label{fig:figs}S&amp;P500 PE Ratio ACF &amp; PACF" width="672" />
+<p class="caption">
+Figure 4.6: S&amp;P500 PE Ratio ACF &amp; PACF
+</p>
+</div>
+</div>
+<div id="sp-500-earnings-yield-inverse" class="section level3">
+<h3><span class="header-section-number">4.13.2</span> S&amp;P 500 Earnings Yield (inverse)</h3>
+<p>The earnings yield is an indicator that refers to the earnings for the most recent 12-month period divided by the Market value of all companies in the S&amp;P500. The earnings yield (which is the inverse of the P/E ratio) shows the percentage of the S&amp;P500 index’s earnings per share.</p>
+<div class="figure"><span id="fig:unnamed-chunk-39"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-39-1.png" alt="\label{fig:figs}S&amp;P 500 Earnings Yield  vs Recessions" width="672" />
+<p class="caption">
+Figure 4.7: S&amp;P 500 Earnings Yield vs Recessions
+</p>
+</div>
+<div class="figure"><span id="fig:unnamed-chunk-40"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-40-1.png" alt="\label{fig:figs}S&amp;P 500 Earnings Yield vs Recessions (Box Plot)" width="672" />
+<p class="caption">
+Figure 4.8: S&amp;P 500 Earnings Yield vs Recessions (Box Plot)
+</p>
+</div>
+<div class="figure"><span id="fig:unnamed-chunk-41"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-41-1.png" alt="\label{fig:figs}S&amp;P 500 Earnings Yield Change vs Recessions" width="672" />
+<p class="caption">
+Figure 4.9: S&amp;P 500 Earnings Yield Change vs Recessions
+</p>
+</div>
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE} -->
+<!-- new_df <- lags_indicator(indicator[indicator$Date>=min(time(GSPC)),],GSPC) -->
+<!-- ggcorrplot(cor(new_df), lab = FALSE, type = "lower", p.mat = cor_pmat(new_df), tl.cex = 7) + -->
+<!--   labs(title="Correlation between S&P500 and Lags of S&P 500 Earnings Yield",  -->
+<!--        subtitle = paste("6 months lags (", guess_period(indicator),")"), -->
+<!--        caption = "*The X indicates rejected hypothesis at the 95% significance") + -->
+<!--     theme(axis.text.x = element_blank(), -->
+<!--           plot.title = element_text(hjust=0.5), -->
+<!--           plot.subtitle = element_text(hjust=0.5), -->
+<!--           plot.caption = element_text(hjust=0.5)) -->
+<!-- ``` -->
+<div class="figure"><span id="fig:unnamed-chunk-42"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-42-1.png" alt="\label{fig:figs}S&amp;P500 Earnings Yield ACF &amp; PACF" width="672" />
+<p class="caption">
+Figure 4.10: S&amp;P500 Earnings Yield ACF &amp; PACF
+</p>
+</div>
+</div>
+<div id="shiller-pe-ratio" class="section level3">
+<h3><span class="header-section-number">4.13.3</span> Shiller PE Ratio</h3>
+<div class="figure"><span id="fig:unnamed-chunk-44"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-44-1.png" alt="\label{fig:figs}Shiller PE Ratio  vs Recessions" width="672" />
+<p class="caption">
+Figure 4.11: Shiller PE Ratio vs Recessions
+</p>
+</div>
+<div class="figure"><span id="fig:unnamed-chunk-45"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-45-1.png" alt="\label{fig:figs}Shiller PE Ratio vs Recessions (Box Plot)" width="672" />
+<p class="caption">
+Figure 4.12: Shiller PE Ratio vs Recessions (Box Plot)
+</p>
+</div>
+<div class="figure"><span id="fig:unnamed-chunk-46"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-46-1.png" alt="\label{fig:figs}Shiller PE Ratio Change vs Recessions" width="672" />
+<p class="caption">
+Figure 4.13: Shiller PE Ratio Change vs Recessions
+</p>
+</div>
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="\\label{fig:figs}Shiller PE Ratio Correlation Plot"} -->
+<!-- new_df <- lags_indicator(indicator[indicator$Date>=min(time(GSPC)),],GSPC) -->
+<!-- ggcorrplot(cor(new_df), lab = FALSE, type = "lower", p.mat = cor_pmat(new_df), tl.cex = 7) + -->
+<!--   labs(title="Correlation between S&P500 and Lags of Shiller PE Ratio",  -->
+<!--        subtitle = paste("6 months lags (", guess_period(indicator),")"), -->
+<!--        caption = "*The X indicates rejected hypothesis at the 95% significance") + -->
+<!--     theme(axis.text.x = element_blank(), -->
+<!--           plot.title = element_text(hjust=0.5), -->
+<!--           plot.subtitle = element_text(hjust=0.5), -->
+<!--           plot.caption = element_text(hjust=0.5)) -->
+<!-- ``` -->
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+</div>
+<div id="sp-500-price-to-sales-ratio" class="section level3">
+<h3><span class="header-section-number">4.13.4</span> S&amp;P 500 Price to Sales Ratio</h3>
+<div class="figure"><span id="fig:unnamed-chunk-49"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-49-1.png" alt="\label{fig:figs}S&amp;P 500 Price to Sales Ratio  vs Recessions" width="672" />
+<p class="caption">
+Figure 4.14: S&amp;P 500 Price to Sales Ratio vs Recessions
+</p>
+</div>
+<div class="figure"><span id="fig:unnamed-chunk-50"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-50-1.png" alt="\label{fig:figs}S&amp;P 500 Price to Sales Ratio vs Recessions (Box Plot)" width="672" />
+<p class="caption">
+Figure 4.15: S&amp;P 500 Price to Sales Ratio vs Recessions (Box Plot)
+</p>
+</div>
+<div class="figure"><span id="fig:unnamed-chunk-51"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-51-1.png" alt="\label{fig:figs}S&amp;P 500 Price to Sales Ratio Change vs Recessions" width="672" />
+<p class="caption">
+Figure 4.16: S&amp;P 500 Price to Sales Ratio Change vs Recessions
+</p>
+</div>
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="\\label{fig:figs}S&P 500 Price to Sales Ratio Correlation Plot"} -->
+<!-- new_df <- lags_indicator(indicator[indicator$Date>=min(time(GSPC)),],GSPC) -->
+<!-- ggcorrplot(cor(new_df), lab = FALSE, type = "lower", p.mat = cor_pmat(new_df), tl.cex = 7) + -->
+<!--   labs(title="Correlation between S&P500 and Lags of S&P 500 Price to Sales Ratio",  -->
+<!--        subtitle = paste("6 months lags (", guess_period(indicator),")"), -->
+<!--        caption = "*The X indicates rejected hypothesis at the 95% significance") + -->
+<!--     theme(axis.text.x = element_blank(), -->
+<!--           plot.title = element_text(hjust=0.5), -->
+<!--           plot.subtitle = element_text(hjust=0.5), -->
+<!--           plot.caption = element_text(hjust=0.5)) -->
+<!-- ``` -->
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
+</div>
+<div id="sp-500-price-to-book-value" class="section level3">
+<h3><span class="header-section-number">4.13.5</span> S&amp;P 500 Price to Book Value</h3>
+<div class="figure"><span id="fig:unnamed-chunk-54"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-54-1.png" alt="\label{fig:figs}S&amp;P 500 Price to Book Value  vs Recessions" width="672" />
+<p class="caption">
+Figure 4.17: S&amp;P 500 Price to Book Value vs Recessions
+</p>
+</div>
+<div class="figure"><span id="fig:unnamed-chunk-55"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-55-1.png" alt="\label{fig:figs}S&amp;P 500 Price to Book Value vs Recessions (Box Plot)" width="672" />
+<p class="caption">
+Figure 4.18: S&amp;P 500 Price to Book Value vs Recessions (Box Plot)
+</p>
+</div>
+<div class="figure"><span id="fig:unnamed-chunk-56"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-56-1.png" alt="\label{fig:figs}S&amp;P 500 Price to Book Value Change vs Recessions" width="672" />
+<p class="caption">
+Figure 4.19: S&amp;P 500 Price to Book Value Change vs Recessions
+</p>
+</div>
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="\\label{fig:figs}S&P 500 Price to Book Value Correlation Plot"} -->
+<!-- new_df <- lags_indicator(indicator[indicator$Date>=min(time(GSPC)),],GSPC) -->
+<!-- ggcorrplot(cor(new_df), lab = FALSE, type = "lower", p.mat = cor_pmat(new_df), tl.cex = 7) + -->
+<!--   labs(title="Correlation between S&P500 and Lags of S&P 500 Price to Book Value",  -->
+<!--        subtitle = paste("6 months lags (", guess_period(indicator),")"), -->
+<!--        caption = "*The X indicates rejected hypothesis at the 95% significance") + -->
+<!--     theme(axis.text.x = element_blank(), -->
+<!--           plot.title = element_text(hjust=0.5), -->
+<!--           plot.subtitle = element_text(hjust=0.5), -->
+<!--           plot.caption = element_text(hjust=0.5)) -->
+<!-- ``` -->
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+</div>
+<div id="sp-500-dividend-growth" class="section level3">
+<h3><span class="header-section-number">4.13.6</span> S&amp;P 500 Dividend Growth</h3>
+<div class="figure"><span id="fig:unnamed-chunk-59"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-59-1.png" alt="\label{fig:figs}S&amp;P 500 Dividend Growth  vs Recessions" width="672" />
+<p class="caption">
+Figure 4.20: S&amp;P 500 Dividend Growth vs Recessions
+</p>
+</div>
+<div class="figure"><span id="fig:unnamed-chunk-60"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-60-1.png" alt="\label{fig:figs}S&amp;P 500 Dividend Growth vs Recessions (Box Plot)" width="672" />
+<p class="caption">
+Figure 4.21: S&amp;P 500 Dividend Growth vs Recessions (Box Plot)
+</p>
+</div>
+<div class="figure"><span id="fig:unnamed-chunk-61"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-61-1.png" alt="\label{fig:figs}S&amp;P 500 Dividend Growth Change vs Recessions" width="672" />
+<p class="caption">
+Figure 4.22: S&amp;P 500 Dividend Growth Change vs Recessions
+</p>
+</div>
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="\\label{fig:figs}S&P 500 Dividend Growth Correlation Plot"} -->
+<!-- new_df <- lags_indicator(indicator[indicator$Date>=min(time(GSPC)),],GSPC) -->
+<!-- ggcorrplot(cor(new_df), lab = FALSE, type = "lower", p.mat = cor_pmat(new_df), tl.cex = 7) + -->
+<!--   labs(title="Correlation between S&P500 and Lags of S&P 500 Dividend Growth",  -->
+<!--        subtitle = paste("6 months lags (", guess_period(indicator),")"), -->
+<!--        caption = "*The X indicates rejected hypothesis at the 95% significance") + -->
+<!--     theme(axis.text.x = element_blank(), -->
+<!--           plot.title = element_text(hjust=0.5), -->
+<!--           plot.subtitle = element_text(hjust=0.5), -->
+<!--           plot.caption = element_text(hjust=0.5)) -->
+<!-- ``` -->
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+</div>
+</div>
+<div id="seasonal-analysis" class="section level2">
+<h2><span class="header-section-number">4.14</span> Seasonal Analysis</h2>
+<div id="time-analysis-breakdown" class="section level3">
+<h3><span class="header-section-number">4.14.1</span> Time Analysis Breakdown</h3>
+</div>
+<div id="sarima" class="section level3">
+<h3><span class="header-section-number">4.14.2</span> SARIMA?</h3>
+</div>
+<div id="archgarch" class="section level3">
+<h3><span class="header-section-number">4.14.3</span> ARCH/GARCH?</h3>
+</div>
+<div id="fourier-analysis" class="section level3">
+<h3><span class="header-section-number">4.14.4</span> Fourier Analysis</h3>
+</div>
+</div>
+<div id="technical-analysis" class="section level2">
+<h2><span class="header-section-number">4.15</span> Technical Analysis</h2>
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<div id="moving-averages" class="section level3">
+<h3><span class="header-section-number">4.15.1</span> Moving Averages</h3>
+</div>
+<div id="relative-strength-indicator" class="section level3">
+<h3><span class="header-section-number">4.15.2</span> Relative Strength Indicator</h3>
+</div>
+<div id="commodity-channel-index" class="section level3">
+<h3><span class="header-section-number">4.15.3</span> Commodity Channel Index</h3>
+</div>
+</div>
+<div id="politics" class="section level2">
+<h2><span class="header-section-number">4.16</span> Politics</h2>
+<div id="days-to-next-presidential-elections" class="section level3">
+<h3><span class="header-section-number">4.16.1</span> Days to next Presidential Elections</h3>
+<ul>
+<li>Reverse axis line chart number of days vs returns
+<ul>
+<li>Same chart color coded by party</li>
+</ul></li>
+</ul>
+</div>
+<div id="political-party" class="section level3">
+<h3><span class="header-section-number">4.16.2</span> Political Party</h3>
+<ul>
+<li>Box-plot with both parties vs returns
+<ul>
+<li>Box-plot with both parties vs dropdown value</li>
+<li>Bar plot with both parties vs number of recessions</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="economics" class="section level2">
+<h2><span class="header-section-number">4.17</span> Economics</h2>
+<div id="national-financial-conditions-index-nfci" class="section level3">
+<h3><span class="header-section-number">4.17.1</span> National Financial Conditions Index (NFCI)</h3>
+<div class="figure"><span id="fig:unnamed-chunk-66"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-66-1.png" alt="\label{fig:figs}National Financial Conditions Index vs Recessions" width="672" />
+<p class="caption">
+Figure 4.23: National Financial Conditions Index vs Recessions
+</p>
+</div>
+<div class="figure"><span id="fig:unnamed-chunk-67"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-67-1.png" alt="\label{fig:figs}National Financial Conditions Index vs Recessions (Box Plot)" width="672" />
+<p class="caption">
+Figure 4.24: National Financial Conditions Index vs Recessions (Box Plot)
+</p>
+</div>
+<div class="figure"><span id="fig:unnamed-chunk-68"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-68-1.png" alt="\label{fig:figs}National Financial Conditions Index vs Recessions" width="672" />
+<p class="caption">
+Figure 4.25: National Financial Conditions Index vs Recessions
+</p>
+</div>
+<div class="figure"><span id="fig:unnamed-chunk-69-1"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-69-1.png" alt="\label{fig:figs}National Financial Conditions Index vs. S&amp;P500 returns" width="672" />
+<p class="caption">
+Figure 4.26: National Financial Conditions Index vs. S&amp;P500 returns
+</p>
+</div>
+<pre><code>## [1] 2</code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-69-2"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-69-2.png" alt="\label{fig:figs}National Financial Conditions Index vs. S&amp;P500 returns" width="672" />
+<p class="caption">
+Figure 4.27: National Financial Conditions Index vs. S&amp;P500 returns
+</p>
+</div>
+<pre><code>## [1] -1.07126</code></pre>
+<pre><code>## [1] -0.2008375</code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-70-1"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-70-1.png" alt="\label{fig:figs}National Financial Conditions Index vs. S&amp;P500 returns" width="672" />
+<p class="caption">
+Figure 4.28: National Financial Conditions Index vs. S&amp;P500 returns
+</p>
+</div>
+<pre><code>## [1] 2</code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-70-2"></span>
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-70-2.png" alt="\label{fig:figs}National Financial Conditions Index vs. S&amp;P500 returns" width="672" />
+<p class="caption">
+Figure 4.29: National Financial Conditions Index vs. S&amp;P500 returns
+</p>
+</div>
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-73-1.png" width="672" />
+<img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="\\label{fig:figs}National Financial Conditions Index Correlation Plot"} -->
+<!-- ggcorrplot(cor(new_df), lab = FALSE, type = "lower", p.mat = cor_pmat(new_df), tl.cex = 7) + -->
+<!--   labs(title="Correlation between S&P500 and  -->
+<!--   Lags of National Financial Conditions Index",  -->
+<!--        subtitle = paste("6 months lags (", guess_period(indicator),")"), -->
+<!--        caption = "*The X indicates rejected hypothesis at the 95% significance") + -->
+<!--     theme(axis.text.x = element_blank(), -->
+<!--           plot.title = element_text(hjust=0.5), -->
+<!--           plot.subtitle = element_text(hjust=0.5), -->
+<!--           plot.caption = element_text(hjust=0.5)) -->
+<!-- ``` -->
+<p><img src="MichaelAzer_thesis_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+</div>
+<div id="industrial-production-index-ipro" class="section level3">
+<h3><span class="header-section-number">4.17.2</span> Industrial Production Index (IPRO)</h3>
+</div>
+<div id="government-consumption-expenditures-and-gross-investment-gce" class="section level3">
+<h3><span class="header-section-number">4.17.3</span> Government Consumption Expenditures and Gross Investment (GCE)</h3>
+</div>
+<div id="unemployment-rate-unrate-1" class="section level3">
+<h3><span class="header-section-number">4.17.4</span> Unemployment Rate (UNRATE)</h3>
+</div>
+<div id="real-gross-domestic-product-gdpc1-1" class="section level3">
+<h3><span class="header-section-number">4.17.5</span> Real Gross Domestic Product (GDPC1)</h3>
+</div>
+<div id="personal-saving-rate-psavert" class="section level3">
+<h3><span class="header-section-number">4.17.6</span> Personal Saving Rate (PSAVERT)</h3>
+</div>
+<div id="disposable-personal-income-dspi" class="section level3">
+<h3><span class="header-section-number">4.17.7</span> Disposable Personal Income (DSPI)</h3>
+</div>
+<div id="real-manufacturing-and-trade-industries-sales-cmrmtspl" class="section level3">
+<h3><span class="header-section-number">4.17.8</span> Real Manufacturing and Trade Industries Sales (CMRMTSPL)</h3>
+</div>
+<div id="new-private-housing-units-authorized-by-building-permits-permit" class="section level3">
+<h3><span class="header-section-number">4.17.9</span> New Private Housing Units Authorized by Building Permits (PERMIT)</h3>
+</div>
+<div id="year-treasury-constant-maturity-rate-dgs10-1" class="section level3">
+<h3><span class="header-section-number">4.17.10</span> 10-Year Treasury Constant Maturity Rate (DGS10)</h3>
+</div>
+<div id="year-treasury-constant-maturity-minus-2-year-treasury-constant-maturity-t10y2y" class="section level3">
+<h3><span class="header-section-number">4.17.11</span> 10-Year Treasury Constant Maturity Minus 2-Year Treasury Constant Maturity (T10Y2Y)</h3>
+</div>
+<div id="year-treasury-constant-maturity-minus-federal-funds-rate-t10yff" class="section level3">
+<h3><span class="header-section-number">4.17.12</span> 10-Year Treasury Constant Maturity Minus Federal Funds Rate (T10YFF)</h3>
+</div>
+<div id="month-treasury-bill-minus-federal-funds-rate-tb6smffm" class="section level3">
+<h3><span class="header-section-number">4.17.13</span> 6-Month Treasury Bill Minus Federal Funds Rate (TB6SMFFM)</h3>
+</div>
+<div id="month-treasury-constant-maturity-minus-federal-funds-rate-t6mff" class="section level3">
+<h3><span class="header-section-number">4.17.14</span> 6-Month Treasury Constant Maturity Minus Federal Funds Rate (T6MFF)</h3>
+</div>
+<div id="coincident-economic-activity-index-for-the-united-states-usphci" class="section level3">
+<h3><span class="header-section-number">4.17.15</span> Coincident Economic Activity Index for the United States (USPHCI)</h3>
+</div>
+<div id="leading-index-for-the-united-states-usslind" class="section level3">
+<h3><span class="header-section-number">4.17.16</span> Leading Index for the United States (USSLIND)</h3>
+
+</div>
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-brennan1998stripping">
+<p>Brennan, Michael J. 1998. “Stripping the S&amp;P 500 Index.” <em>Financial Analysts Journal</em> 54 (1). Taylor &amp; Francis: 12–22.</p>
+</div>
+<div id="ref-carlson1997recent">
+<p>Carlson, John B, Kevin H Sargent, and others. 1997. “The Recent Ascent of Stock Prices: Can It Be Explained by Earnings Growth or Other Fundamentals?” <em>Economic Review-Federal Reserve Bank of Cleveland</em> 33. THE FEDERAL RESERVE BANK OF CLEVELAND: 2–12.</p>
+</div>
+<div id="ref-keimling2016predicting">
+<p>Keimling, Norbert. 2016. “Predicting Stock Market Returns Using the Shiller Cape—an Improvement Towards Traditional Value Indicators?” <em>Available at SSRN 2736423</em>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="methodology.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="results.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["MichaelAzer_thesis.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

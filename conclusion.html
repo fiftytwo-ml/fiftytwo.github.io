@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Conclusion | An Intelligent Market Cycle Detection System</title>
+  <meta name="description" content="Chapter 6 Conclusion | An Intelligent Market Cycle Detection System" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Conclusion | An Intelligent Market Cycle Detection System" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="michaelazer/thesis" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Conclusion | An Intelligent Market Cycle Detection System" />
+  
+  
+  
+
+<meta name="author" content="Michael S. Azer" />
+
+
+<meta name="date" content="2020-11-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="results.html"/>
+<link rel="next" href="ref.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">htttps://www.michaelazer.com/thesis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#statement-of-the-problem"><i class="fa fa-check"></i><b>1.1</b> Statement of the Problem</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#objective"><i class="fa fa-check"></i><b>1.2</b> Objective</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#significance"><i class="fa fa-check"></i><b>1.3</b> Significance</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="litrev.html"><a href="litrev.html"><i class="fa fa-check"></i><b>2</b> Literature Review</a><ul>
+<li class="chapter" data-level="2.1" data-path="litrev.html"><a href="litrev.html#duration-dependence"><i class="fa fa-check"></i><b>2.1</b> Duration-dependence</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="litrev.html"><a href="litrev.html#definition"><i class="fa fa-check"></i><b>2.1.1</b> Definition</a></li>
+<li class="chapter" data-level="2.1.2" data-path="litrev.html"><a href="litrev.html#turning-point-detection"><i class="fa fa-check"></i><b>2.1.2</b> Turning-point Detection</a></li>
+<li class="chapter" data-level="2.1.3" data-path="litrev.html"><a href="litrev.html#cycle-length"><i class="fa fa-check"></i><b>2.1.3</b> Cycle Length</a></li>
+<li class="chapter" data-level="2.1.4" data-path="litrev.html"><a href="litrev.html#cycle-synchronization"><i class="fa fa-check"></i><b>2.1.4</b> Cycle Synchronization</a></li>
+<li class="chapter" data-level="2.1.5" data-path="litrev.html"><a href="litrev.html#bubbles-and-recessions"><i class="fa fa-check"></i><b>2.1.5</b> Bubbles and Recessions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="litrev.html"><a href="litrev.html#established-cycles"><i class="fa fa-check"></i><b>2.2</b> Established Cycles</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="litrev.html"><a href="litrev.html#kondratiev"><i class="fa fa-check"></i><b>2.2.1</b> Kondratiev</a></li>
+<li class="chapter" data-level="2.2.2" data-path="litrev.html"><a href="litrev.html#kuznets"><i class="fa fa-check"></i><b>2.2.2</b> Kuznets</a></li>
+<li class="chapter" data-level="2.2.3" data-path="litrev.html"><a href="litrev.html#juglar"><i class="fa fa-check"></i><b>2.2.3</b> Juglar</a></li>
+<li class="chapter" data-level="2.2.4" data-path="litrev.html"><a href="litrev.html#kitchin"><i class="fa fa-check"></i><b>2.2.4</b> Kitchin</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="litrev.html"><a href="litrev.html#classification-of-sp500"><i class="fa fa-check"></i><b>2.3</b> Classification of S&amp;P500</a></li>
+<li class="chapter" data-level="2.4" data-path="litrev.html"><a href="litrev.html#features-to-determine-phases"><i class="fa fa-check"></i><b>2.4</b> Features to determine phases</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="litrev.html"><a href="litrev.html#political-events"><i class="fa fa-check"></i><b>2.4.1</b> Political Events</a></li>
+<li class="chapter" data-level="2.4.2" data-path="litrev.html"><a href="litrev.html#economic-factors"><i class="fa fa-check"></i><b>2.4.2</b> Economic Factors</a></li>
+<li class="chapter" data-level="2.4.3" data-path="litrev.html"><a href="litrev.html#health-shocks-pandemics-and-epidemics"><i class="fa fa-check"></i><b>2.4.3</b> Health Shocks (Pandemics and Epidemics)</a></li>
+<li class="chapter" data-level="2.4.4" data-path="litrev.html"><a href="litrev.html#financial-indicators"><i class="fa fa-check"></i><b>2.4.4</b> Financial Indicators</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="litrev.html"><a href="litrev.html#importance-of-features"><i class="fa fa-check"></i><b>2.5</b> Importance of features</a></li>
+<li class="chapter" data-level="2.6" data-path="litrev.html"><a href="litrev.html#market-prediction"><i class="fa fa-check"></i><b>2.6</b> Market prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="methodology.html"><a href="methodology.html"><i class="fa fa-check"></i><b>3</b> Methodology</a><ul>
+<li class="chapter" data-level="3.1" data-path="methodology.html"><a href="methodology.html#data"><i class="fa fa-check"></i><b>3.1</b> Data</a></li>
+<li class="chapter" data-level="3.2" data-path="methodology.html"><a href="methodology.html#techniques"><i class="fa fa-check"></i><b>3.2</b> Techniques</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="methodology.html"><a href="methodology.html#data"><i class="fa fa-check"></i><b>4</b> Data Preparation</a><ul>
+<li class="chapter" data-level="4.1" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>4.1</b> Factors Tested</a></li>
+<li class="chapter" data-level="4.2" data-path="data.html"><a href="data.html#testing-stationarity"><i class="fa fa-check"></i><b>4.2</b> Testing Stationarity</a></li>
+<li class="chapter" data-level="4.3" data-path="data.html"><a href="data.html#recessions"><i class="fa fa-check"></i><b>4.3</b> Recessions</a></li>
+<li class="chapter" data-level="4.4" data-path="data.html"><a href="data.html#sp500-index"><i class="fa fa-check"></i><b>4.4</b> S&amp;P500 Index</a></li>
+<li class="chapter" data-level="4.5" data-path="data.html"><a href="data.html#national-financial-conditions-index"><i class="fa fa-check"></i><b>4.5</b> National Financial Conditions Index</a></li>
+<li class="chapter" data-level="4.6" data-path="data.html"><a href="data.html#industrial-production-index"><i class="fa fa-check"></i><b>4.6</b> Industrial Production Index</a></li>
+<li class="chapter" data-level="4.7" data-path="data.html"><a href="data.html#real-government-consumption-expenditures-and-gross-investment"><i class="fa fa-check"></i><b>4.7</b> Real Government Consumption Expenditures and Gross Investment</a></li>
+<li class="chapter" data-level="4.8" data-path="data.html"><a href="data.html#dollar-index"><i class="fa fa-check"></i><b>4.8</b> Dollar Index</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="data.html"><a href="data.html#trade-weighted-u.s.-dollar-index-advanced-foreign-economies-goods-and-services-dtwexafegs"><i class="fa fa-check"></i><b>4.8.1</b> Trade Weighted U.S. Dollar Index: Advanced Foreign Economies, Goods and Services (DTWEXAFEGS)</a></li>
+<li class="chapter" data-level="4.8.2" data-path="data.html"><a href="data.html#trade-weighted-u.s.-dollar-index-broad-goods-and-services-dtwexbgs"><i class="fa fa-check"></i><b>4.8.2</b> Trade Weighted U.S. Dollar Index: Broad, Goods and Services (DTWEXBGS)</a></li>
+<li class="chapter" data-level="4.8.3" data-path="data.html"><a href="data.html#trade-weighted-u.s.-dollar-index-major-currencies-goods-discontinued-dtwexm"><i class="fa fa-check"></i><b>4.8.3</b> Trade Weighted U.S. Dollar Index: Major Currencies, Goods (DISCONTINUED) (DTWEXM)</a></li>
+<li class="chapter" data-level="4.8.4" data-path="data.html"><a href="data.html#trade-weighted-u.s.-dollar-index-broad-goods-discontinued-dtwexb"><i class="fa fa-check"></i><b>4.8.4</b> Trade Weighted U.S. Dollar Index: Broad, Goods (DISCONTINUED) (DTWEXB)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="data.html"><a href="data.html#year-treasury-constant-maturity-rate-dgs10"><i class="fa fa-check"></i><b>4.9</b> 10-Year Treasury Constant Maturity Rate (DGS10)</a></li>
+<li class="chapter" data-level="4.10" data-path="data.html"><a href="data.html#real-gross-domestic-product-gdpc1"><i class="fa fa-check"></i><b>4.10</b> Real Gross Domestic Product (GDPC1)</a></li>
+<li class="chapter" data-level="4.11" data-path="data.html"><a href="data.html#unemployment-rate-unrate"><i class="fa fa-check"></i><b>4.11</b> Unemployment Rate (UNRATE)</a></li>
+<li class="chapter" data-level="4.12" data-path="data.html"><a href="data.html#sp500-analysis"><i class="fa fa-check"></i><b>4.12</b> S&amp;P500 Analysis</a><ul>
+<li class="chapter" data-level="4.12.1" data-path="data.html"><a href="data.html#price-vs.recessions-line"><i class="fa fa-check"></i><b>4.12.1</b> Price vs. Recessions (Line)</a></li>
+<li class="chapter" data-level="4.12.2" data-path="data.html"><a href="data.html#returns-vs.-recessions-line"><i class="fa fa-check"></i><b>4.12.2</b> Returns Vs. Recessions (Line)</a></li>
+<li class="chapter" data-level="4.12.3" data-path="data.html"><a href="data.html#returns-vs.-recessions-box-plot"><i class="fa fa-check"></i><b>4.12.3</b> Returns Vs. Recessions (Box-plot)</a></li>
+<li class="chapter" data-level="4.12.4" data-path="data.html"><a href="data.html#draw-downs-vs.recessions-line"><i class="fa fa-check"></i><b>4.12.4</b> Draw-downs vs. Recessions (Line)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.13" data-path="data.html"><a href="data.html#fundamentals"><i class="fa fa-check"></i><b>4.13</b> Fundamentals</a><ul>
+<li class="chapter" data-level="4.13.1" data-path="data.html"><a href="data.html#sp-500-pe-ratio"><i class="fa fa-check"></i><b>4.13.1</b> S&amp;P 500 PE Ratio</a></li>
+<li class="chapter" data-level="4.13.2" data-path="data.html"><a href="data.html#sp-500-earnings-yield-inverse"><i class="fa fa-check"></i><b>4.13.2</b> S&amp;P 500 Earnings Yield (inverse)</a></li>
+<li class="chapter" data-level="4.13.3" data-path="data.html"><a href="data.html#shiller-pe-ratio"><i class="fa fa-check"></i><b>4.13.3</b> Shiller PE Ratio</a></li>
+<li class="chapter" data-level="4.13.4" data-path="data.html"><a href="data.html#sp-500-price-to-sales-ratio"><i class="fa fa-check"></i><b>4.13.4</b> S&amp;P 500 Price to Sales Ratio</a></li>
+<li class="chapter" data-level="4.13.5" data-path="data.html"><a href="data.html#sp-500-price-to-book-value"><i class="fa fa-check"></i><b>4.13.5</b> S&amp;P 500 Price to Book Value</a></li>
+<li class="chapter" data-level="4.13.6" data-path="data.html"><a href="data.html#sp-500-dividend-growth"><i class="fa fa-check"></i><b>4.13.6</b> S&amp;P 500 Dividend Growth</a></li>
+</ul></li>
+<li class="chapter" data-level="4.14" data-path="data.html"><a href="data.html#seasonal-analysis"><i class="fa fa-check"></i><b>4.14</b> Seasonal Analysis</a><ul>
+<li class="chapter" data-level="4.14.1" data-path="data.html"><a href="data.html#time-analysis-breakdown"><i class="fa fa-check"></i><b>4.14.1</b> Time Analysis Breakdown</a></li>
+<li class="chapter" data-level="4.14.2" data-path="data.html"><a href="data.html#sarima"><i class="fa fa-check"></i><b>4.14.2</b> SARIMA?</a></li>
+<li class="chapter" data-level="4.14.3" data-path="data.html"><a href="data.html#archgarch"><i class="fa fa-check"></i><b>4.14.3</b> ARCH/GARCH?</a></li>
+<li class="chapter" data-level="4.14.4" data-path="data.html"><a href="data.html#fourier-analysis"><i class="fa fa-check"></i><b>4.14.4</b> Fourier Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4.15" data-path="data.html"><a href="data.html#technical-analysis"><i class="fa fa-check"></i><b>4.15</b> Technical Analysis</a><ul>
+<li class="chapter" data-level="4.15.1" data-path="data.html"><a href="data.html#moving-averages"><i class="fa fa-check"></i><b>4.15.1</b> Moving Averages</a></li>
+<li class="chapter" data-level="4.15.2" data-path="data.html"><a href="data.html#relative-strength-indicator"><i class="fa fa-check"></i><b>4.15.2</b> Relative Strength Indicator</a></li>
+<li class="chapter" data-level="4.15.3" data-path="data.html"><a href="data.html#commodity-channel-index"><i class="fa fa-check"></i><b>4.15.3</b> Commodity Channel Index</a></li>
+</ul></li>
+<li class="chapter" data-level="4.16" data-path="data.html"><a href="data.html#politics"><i class="fa fa-check"></i><b>4.16</b> Politics</a><ul>
+<li class="chapter" data-level="4.16.1" data-path="data.html"><a href="data.html#days-to-next-presidential-elections"><i class="fa fa-check"></i><b>4.16.1</b> Days to next Presidential Elections</a></li>
+<li class="chapter" data-level="4.16.2" data-path="data.html"><a href="data.html#political-party"><i class="fa fa-check"></i><b>4.16.2</b> Political Party</a></li>
+</ul></li>
+<li class="chapter" data-level="4.17" data-path="data.html"><a href="data.html#economics"><i class="fa fa-check"></i><b>4.17</b> Economics</a><ul>
+<li class="chapter" data-level="4.17.1" data-path="data.html"><a href="data.html#national-financial-conditions-index-nfci"><i class="fa fa-check"></i><b>4.17.1</b> National Financial Conditions Index (NFCI)</a></li>
+<li class="chapter" data-level="4.17.2" data-path="data.html"><a href="data.html#industrial-production-index-ipro"><i class="fa fa-check"></i><b>4.17.2</b> Industrial Production Index (IPRO)</a></li>
+<li class="chapter" data-level="4.17.3" data-path="data.html"><a href="data.html#government-consumption-expenditures-and-gross-investment-gce"><i class="fa fa-check"></i><b>4.17.3</b> Government Consumption Expenditures and Gross Investment (GCE)</a></li>
+<li class="chapter" data-level="4.17.4" data-path="data.html"><a href="data.html#unemployment-rate-unrate-1"><i class="fa fa-check"></i><b>4.17.4</b> Unemployment Rate (UNRATE)</a></li>
+<li class="chapter" data-level="4.17.5" data-path="data.html"><a href="data.html#real-gross-domestic-product-gdpc1-1"><i class="fa fa-check"></i><b>4.17.5</b> Real Gross Domestic Product (GDPC1)</a></li>
+<li class="chapter" data-level="4.17.6" data-path="data.html"><a href="data.html#personal-saving-rate-psavert"><i class="fa fa-check"></i><b>4.17.6</b> Personal Saving Rate (PSAVERT)</a></li>
+<li class="chapter" data-level="4.17.7" data-path="data.html"><a href="data.html#disposable-personal-income-dspi"><i class="fa fa-check"></i><b>4.17.7</b> Disposable Personal Income (DSPI)</a></li>
+<li class="chapter" data-level="4.17.8" data-path="data.html"><a href="data.html#real-manufacturing-and-trade-industries-sales-cmrmtspl"><i class="fa fa-check"></i><b>4.17.8</b> Real Manufacturing and Trade Industries Sales (CMRMTSPL)</a></li>
+<li class="chapter" data-level="4.17.9" data-path="data.html"><a href="data.html#new-private-housing-units-authorized-by-building-permits-permit"><i class="fa fa-check"></i><b>4.17.9</b> New Private Housing Units Authorized by Building Permits (PERMIT)</a></li>
+<li class="chapter" data-level="4.17.10" data-path="data.html"><a href="data.html#year-treasury-constant-maturity-rate-dgs10-1"><i class="fa fa-check"></i><b>4.17.10</b> 10-Year Treasury Constant Maturity Rate (DGS10)</a></li>
+<li class="chapter" data-level="4.17.11" data-path="data.html"><a href="data.html#year-treasury-constant-maturity-minus-2-year-treasury-constant-maturity-t10y2y"><i class="fa fa-check"></i><b>4.17.11</b> 10-Year Treasury Constant Maturity Minus 2-Year Treasury Constant Maturity (T10Y2Y)</a></li>
+<li class="chapter" data-level="4.17.12" data-path="data.html"><a href="data.html#year-treasury-constant-maturity-minus-federal-funds-rate-t10yff"><i class="fa fa-check"></i><b>4.17.12</b> 10-Year Treasury Constant Maturity Minus Federal Funds Rate (T10YFF)</a></li>
+<li class="chapter" data-level="4.17.13" data-path="data.html"><a href="data.html#month-treasury-bill-minus-federal-funds-rate-tb6smffm"><i class="fa fa-check"></i><b>4.17.13</b> 6-Month Treasury Bill Minus Federal Funds Rate (TB6SMFFM)</a></li>
+<li class="chapter" data-level="4.17.14" data-path="data.html"><a href="data.html#month-treasury-constant-maturity-minus-federal-funds-rate-t6mff"><i class="fa fa-check"></i><b>4.17.14</b> 6-Month Treasury Constant Maturity Minus Federal Funds Rate (T6MFF)</a></li>
+<li class="chapter" data-level="4.17.15" data-path="data.html"><a href="data.html#coincident-economic-activity-index-for-the-united-states-usphci"><i class="fa fa-check"></i><b>4.17.15</b> Coincident Economic Activity Index for the United States (USPHCI)</a></li>
+<li class="chapter" data-level="4.17.16" data-path="data.html"><a href="data.html#leading-index-for-the-united-states-usslind"><i class="fa fa-check"></i><b>4.17.16</b> Leading Index for the United States (USSLIND)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a><ul>
+<li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#presidential-cycles-1"><i class="fa fa-check"></i><b>5.1</b> Presidential Cycles</a></li>
+<li class="chapter" data-level="5.2" data-path="results.html"><a href="results.html#moving-average-classification"><i class="fa fa-check"></i><b>5.2</b> Moving Average Classification</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a><ul>
+<li class="chapter" data-level="6.1" data-path="conclusion.html"><a href="conclusion.html#summary"><i class="fa fa-check"></i><b>6.1</b> Summary</a></li>
+<li class="chapter" data-level="6.2" data-path="conclusion.html"><a href="conclusion.html#further-research"><i class="fa fa-check"></i><b>6.2</b> Further Research</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="conclusion.html"><a href="conclusion.html#sp500-market-sectors"><i class="fa fa-check"></i><b>6.2.1</b> S&amp;P500 Market Sectors</a></li>
+<li class="chapter" data-level="6.2.2" data-path="conclusion.html"><a href="conclusion.html#consensus"><i class="fa fa-check"></i><b>6.2.2</b> Consensus</a></li>
+<li class="chapter" data-level="6.2.3" data-path="conclusion.html"><a href="conclusion.html#fourier-analysis-matching"><i class="fa fa-check"></i><b>6.2.3</b> Fourier Analysis matching</a></li>
+<li class="chapter" data-level="6.2.4" data-path="conclusion.html"><a href="conclusion.html#fourier-analysis-contractionexpansion"><i class="fa fa-check"></i><b>6.2.4</b> Fourier Analysis Contraction/Expansion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ref.html"><a href="ref.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://www.michaelazer.com" target="blank">Copyright &copy; 2020 by Michael Azer</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Intelligent Market Cycle Detection System</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="conclusion" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Conclusion</h1>
+<div id="summary" class="section level2">
+<h2><span class="header-section-number">6.1</span> Summary</h2>
+<p>This project aims at discovering stock price cycles using machine learning techniques. Such research with a holistic view of the market should be a significant addition to the body of knowledge, and consequently to the financial industry.</p>
+</div>
+<div id="further-research" class="section level2">
+<h2><span class="header-section-number">6.2</span> Further Research</h2>
+<div id="sp500-market-sectors" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> S&amp;P500 Market Sectors</h3>
+<p>Further research could be done by breaking down the market into the 11 market sectors defined by MSCI and S&amp;P. This way market sector cycles could be classified into leading and lagging, and can therefore be used as hedging strategies in different market phases.</p>
+</div>
+<div id="consensus" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Consensus</h3>
+<p>This research has an enormous amount of data features embedded in one dataset. Another method which may be tested against this is to set up the research as an agent-based simulation. Where the researcher would build several “agents”, and each agent would focus only on one aspect of the data. So for example an agent would focus on economic effects, while another would only accommodate for fundamental analysis, etc. Afterwards each agent would try to detect the market cycle according to its given data. Finally, a voting mechanism would be put in place to reach consensus and correctly label each market cycle.</p>
+<p>The inclusion of consensus analysis in financial applications has already been taking place like the recent study where the Black-Scholes model has been studied against an agent-based model where traders (“agents”) update their beliefs about the true implied volatility based on the opinions of other traders. <span class="citation">(Vaidya, Murguia, and Piliouras <a href="#ref-vaidya2018learning">2018</a>)</span></p>
+<p>Adding a consensus aspect to the study would most likely yield to better results, as well as better understanding of the factors affecting market cycles.</p>
+</div>
+<div id="fourier-analysis-matching" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> Fourier Analysis matching</h3>
+<p>During the application of wavelet analysis and specifically the fourier transformations. It was found that many cycles strongly affect the current stock market movement.</p>
+<div class="figure"><span id="fig:unnamed-chunk-113"></span>
+<img src="data/8fourier.png" alt="Fourier Analysis of the S&amp;P500 (8 Waves)"  />
+<p class="caption">
+Figure 6.1: Fourier Analysis of the S&amp;P500 (8 Waves)
+</p>
+</div>
+<p>A great research topic would be to analyze each cycle, and try to match it to real events or factors. For example, does the 4-year cycle match the US presidential cycle? does the 60-year cycle match Kondratiev’s technological cycle? <span class="citation">(Mager <a href="#ref-mager1987kondratiev">1987</a>)</span> What about other cycles like Schumpeter, Kuznets, Juglar and Kitchin cycles, can they also be detected?</p>
+<p>This topic would be great to make sense of the data, as well as find scientific evidence and proof to many speculations.</p>
+</div>
+<div id="fourier-analysis-contractionexpansion" class="section level3">
+<h3><span class="header-section-number">6.2.4</span> Fourier Analysis Contraction/Expansion</h3>
+<p>While studying the fourier analysis of the S&amp;P500, the cycle that ranked the highest in the spectrum analysis matched the S&amp;P500 to a great extent. Starting the mid-80s, the cycle started to shift and show great discrepancy.</p>
+<div class="figure"><span id="fig:unnamed-chunk-114"></span>
+<img src="data/fourier.png" alt="Fourier Analysis of the S&amp;P500 (1 Wave) Showing Discrepancy"  />
+<p class="caption">
+Figure 6.2: Fourier Analysis of the S&amp;P500 (1 Wave) Showing Discrepancy
+</p>
+</div>
+<p>Research in this area could take place, in order to study whether cetain contractions and expansions have been taking place in the general market cycle, as well as the reasons behind it.</p>
+
+</div>
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-mager1987kondratiev">
+<p>Mager, NH. 1987. <em>The Kondratiev Waves</em>. New York: Greenwood Press.</p>
+</div>
+<div id="ref-vaidya2018learning">
+<p>Vaidya, Tushar, Carlos Murguia, and Georgios Piliouras. 2018. “Learning Agents in Financial Markets: Consensus Dynamics on Volatility.” In <em>Proceedings of the 17th International Conference on Autonomous Agents and Multiagent Systems</em>, 2106–8.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="results.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ref.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["MichaelAzer_thesis.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Literature Review | An Intelligent Market Cycle Detection System</title>
+  <meta name="description" content="Chapter 2 Literature Review | An Intelligent Market Cycle Detection System" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Literature Review | An Intelligent Market Cycle Detection System" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="michaelazer/thesis" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Literature Review | An Intelligent Market Cycle Detection System" />
+  
+  
+  
+
+<meta name="author" content="Michael S. Azer" />
+
+
+<meta name="date" content="2020-11-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="methodology.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">htttps://www.michaelazer.com/thesis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#statement-of-the-problem"><i class="fa fa-check"></i><b>1.1</b> Statement of the Problem</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#objective"><i class="fa fa-check"></i><b>1.2</b> Objective</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#significance"><i class="fa fa-check"></i><b>1.3</b> Significance</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="litrev.html"><a href="litrev.html"><i class="fa fa-check"></i><b>2</b> Literature Review</a><ul>
+<li class="chapter" data-level="2.1" data-path="litrev.html"><a href="litrev.html#duration-dependence"><i class="fa fa-check"></i><b>2.1</b> Duration-dependence</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="litrev.html"><a href="litrev.html#definition"><i class="fa fa-check"></i><b>2.1.1</b> Definition</a></li>
+<li class="chapter" data-level="2.1.2" data-path="litrev.html"><a href="litrev.html#turning-point-detection"><i class="fa fa-check"></i><b>2.1.2</b> Turning-point Detection</a></li>
+<li class="chapter" data-level="2.1.3" data-path="litrev.html"><a href="litrev.html#cycle-length"><i class="fa fa-check"></i><b>2.1.3</b> Cycle Length</a></li>
+<li class="chapter" data-level="2.1.4" data-path="litrev.html"><a href="litrev.html#cycle-synchronization"><i class="fa fa-check"></i><b>2.1.4</b> Cycle Synchronization</a></li>
+<li class="chapter" data-level="2.1.5" data-path="litrev.html"><a href="litrev.html#bubbles-and-recessions"><i class="fa fa-check"></i><b>2.1.5</b> Bubbles and Recessions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="litrev.html"><a href="litrev.html#established-cycles"><i class="fa fa-check"></i><b>2.2</b> Established Cycles</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="litrev.html"><a href="litrev.html#kondratiev"><i class="fa fa-check"></i><b>2.2.1</b> Kondratiev</a></li>
+<li class="chapter" data-level="2.2.2" data-path="litrev.html"><a href="litrev.html#kuznets"><i class="fa fa-check"></i><b>2.2.2</b> Kuznets</a></li>
+<li class="chapter" data-level="2.2.3" data-path="litrev.html"><a href="litrev.html#juglar"><i class="fa fa-check"></i><b>2.2.3</b> Juglar</a></li>
+<li class="chapter" data-level="2.2.4" data-path="litrev.html"><a href="litrev.html#kitchin"><i class="fa fa-check"></i><b>2.2.4</b> Kitchin</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="litrev.html"><a href="litrev.html#classification-of-sp500"><i class="fa fa-check"></i><b>2.3</b> Classification of S&amp;P500</a></li>
+<li class="chapter" data-level="2.4" data-path="litrev.html"><a href="litrev.html#features-to-determine-phases"><i class="fa fa-check"></i><b>2.4</b> Features to determine phases</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="litrev.html"><a href="litrev.html#political-events"><i class="fa fa-check"></i><b>2.4.1</b> Political Events</a></li>
+<li class="chapter" data-level="2.4.2" data-path="litrev.html"><a href="litrev.html#economic-factors"><i class="fa fa-check"></i><b>2.4.2</b> Economic Factors</a></li>
+<li class="chapter" data-level="2.4.3" data-path="litrev.html"><a href="litrev.html#health-shocks-pandemics-and-epidemics"><i class="fa fa-check"></i><b>2.4.3</b> Health Shocks (Pandemics and Epidemics)</a></li>
+<li class="chapter" data-level="2.4.4" data-path="litrev.html"><a href="litrev.html#financial-indicators"><i class="fa fa-check"></i><b>2.4.4</b> Financial Indicators</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="litrev.html"><a href="litrev.html#importance-of-features"><i class="fa fa-check"></i><b>2.5</b> Importance of features</a></li>
+<li class="chapter" data-level="2.6" data-path="litrev.html"><a href="litrev.html#market-prediction"><i class="fa fa-check"></i><b>2.6</b> Market prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="methodology.html"><a href="methodology.html"><i class="fa fa-check"></i><b>3</b> Methodology</a><ul>
+<li class="chapter" data-level="3.1" data-path="methodology.html"><a href="methodology.html#data"><i class="fa fa-check"></i><b>3.1</b> Data</a></li>
+<li class="chapter" data-level="3.2" data-path="methodology.html"><a href="methodology.html#techniques"><i class="fa fa-check"></i><b>3.2</b> Techniques</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="methodology.html"><a href="methodology.html#data"><i class="fa fa-check"></i><b>4</b> Data Preparation</a><ul>
+<li class="chapter" data-level="4.1" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>4.1</b> Factors Tested</a></li>
+<li class="chapter" data-level="4.2" data-path="data.html"><a href="data.html#testing-stationarity"><i class="fa fa-check"></i><b>4.2</b> Testing Stationarity</a></li>
+<li class="chapter" data-level="4.3" data-path="data.html"><a href="data.html#recessions"><i class="fa fa-check"></i><b>4.3</b> Recessions</a></li>
+<li class="chapter" data-level="4.4" data-path="data.html"><a href="data.html#sp500-index"><i class="fa fa-check"></i><b>4.4</b> S&amp;P500 Index</a></li>
+<li class="chapter" data-level="4.5" data-path="data.html"><a href="data.html#national-financial-conditions-index"><i class="fa fa-check"></i><b>4.5</b> National Financial Conditions Index</a></li>
+<li class="chapter" data-level="4.6" data-path="data.html"><a href="data.html#industrial-production-index"><i class="fa fa-check"></i><b>4.6</b> Industrial Production Index</a></li>
+<li class="chapter" data-level="4.7" data-path="data.html"><a href="data.html#real-government-consumption-expenditures-and-gross-investment"><i class="fa fa-check"></i><b>4.7</b> Real Government Consumption Expenditures and Gross Investment</a></li>
+<li class="chapter" data-level="4.8" data-path="data.html"><a href="data.html#dollar-index"><i class="fa fa-check"></i><b>4.8</b> Dollar Index</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="data.html"><a href="data.html#trade-weighted-u.s.-dollar-index-advanced-foreign-economies-goods-and-services-dtwexafegs"><i class="fa fa-check"></i><b>4.8.1</b> Trade Weighted U.S. Dollar Index: Advanced Foreign Economies, Goods and Services (DTWEXAFEGS)</a></li>
+<li class="chapter" data-level="4.8.2" data-path="data.html"><a href="data.html#trade-weighted-u.s.-dollar-index-broad-goods-and-services-dtwexbgs"><i class="fa fa-check"></i><b>4.8.2</b> Trade Weighted U.S. Dollar Index: Broad, Goods and Services (DTWEXBGS)</a></li>
+<li class="chapter" data-level="4.8.3" data-path="data.html"><a href="data.html#trade-weighted-u.s.-dollar-index-major-currencies-goods-discontinued-dtwexm"><i class="fa fa-check"></i><b>4.8.3</b> Trade Weighted U.S. Dollar Index: Major Currencies, Goods (DISCONTINUED) (DTWEXM)</a></li>
+<li class="chapter" data-level="4.8.4" data-path="data.html"><a href="data.html#trade-weighted-u.s.-dollar-index-broad-goods-discontinued-dtwexb"><i class="fa fa-check"></i><b>4.8.4</b> Trade Weighted U.S. Dollar Index: Broad, Goods (DISCONTINUED) (DTWEXB)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="data.html"><a href="data.html#year-treasury-constant-maturity-rate-dgs10"><i class="fa fa-check"></i><b>4.9</b> 10-Year Treasury Constant Maturity Rate (DGS10)</a></li>
+<li class="chapter" data-level="4.10" data-path="data.html"><a href="data.html#real-gross-domestic-product-gdpc1"><i class="fa fa-check"></i><b>4.10</b> Real Gross Domestic Product (GDPC1)</a></li>
+<li class="chapter" data-level="4.11" data-path="data.html"><a href="data.html#unemployment-rate-unrate"><i class="fa fa-check"></i><b>4.11</b> Unemployment Rate (UNRATE)</a></li>
+<li class="chapter" data-level="4.12" data-path="data.html"><a href="data.html#sp500-analysis"><i class="fa fa-check"></i><b>4.12</b> S&amp;P500 Analysis</a><ul>
+<li class="chapter" data-level="4.12.1" data-path="data.html"><a href="data.html#price-vs.recessions-line"><i class="fa fa-check"></i><b>4.12.1</b> Price vs. Recessions (Line)</a></li>
+<li class="chapter" data-level="4.12.2" data-path="data.html"><a href="data.html#returns-vs.-recessions-line"><i class="fa fa-check"></i><b>4.12.2</b> Returns Vs. Recessions (Line)</a></li>
+<li class="chapter" data-level="4.12.3" data-path="data.html"><a href="data.html#returns-vs.-recessions-box-plot"><i class="fa fa-check"></i><b>4.12.3</b> Returns Vs. Recessions (Box-plot)</a></li>
+<li class="chapter" data-level="4.12.4" data-path="data.html"><a href="data.html#draw-downs-vs.recessions-line"><i class="fa fa-check"></i><b>4.12.4</b> Draw-downs vs. Recessions (Line)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.13" data-path="data.html"><a href="data.html#fundamentals"><i class="fa fa-check"></i><b>4.13</b> Fundamentals</a><ul>
+<li class="chapter" data-level="4.13.1" data-path="data.html"><a href="data.html#sp-500-pe-ratio"><i class="fa fa-check"></i><b>4.13.1</b> S&amp;P 500 PE Ratio</a></li>
+<li class="chapter" data-level="4.13.2" data-path="data.html"><a href="data.html#sp-500-earnings-yield-inverse"><i class="fa fa-check"></i><b>4.13.2</b> S&amp;P 500 Earnings Yield (inverse)</a></li>
+<li class="chapter" data-level="4.13.3" data-path="data.html"><a href="data.html#shiller-pe-ratio"><i class="fa fa-check"></i><b>4.13.3</b> Shiller PE Ratio</a></li>
+<li class="chapter" data-level="4.13.4" data-path="data.html"><a href="data.html#sp-500-price-to-sales-ratio"><i class="fa fa-check"></i><b>4.13.4</b> S&amp;P 500 Price to Sales Ratio</a></li>
+<li class="chapter" data-level="4.13.5" data-path="data.html"><a href="data.html#sp-500-price-to-book-value"><i class="fa fa-check"></i><b>4.13.5</b> S&amp;P 500 Price to Book Value</a></li>
+<li class="chapter" data-level="4.13.6" data-path="data.html"><a href="data.html#sp-500-dividend-growth"><i class="fa fa-check"></i><b>4.13.6</b> S&amp;P 500 Dividend Growth</a></li>
+</ul></li>
+<li class="chapter" data-level="4.14" data-path="data.html"><a href="data.html#seasonal-analysis"><i class="fa fa-check"></i><b>4.14</b> Seasonal Analysis</a><ul>
+<li class="chapter" data-level="4.14.1" data-path="data.html"><a href="data.html#time-analysis-breakdown"><i class="fa fa-check"></i><b>4.14.1</b> Time Analysis Breakdown</a></li>
+<li class="chapter" data-level="4.14.2" data-path="data.html"><a href="data.html#sarima"><i class="fa fa-check"></i><b>4.14.2</b> SARIMA?</a></li>
+<li class="chapter" data-level="4.14.3" data-path="data.html"><a href="data.html#archgarch"><i class="fa fa-check"></i><b>4.14.3</b> ARCH/GARCH?</a></li>
+<li class="chapter" data-level="4.14.4" data-path="data.html"><a href="data.html#fourier-analysis"><i class="fa fa-check"></i><b>4.14.4</b> Fourier Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4.15" data-path="data.html"><a href="data.html#technical-analysis"><i class="fa fa-check"></i><b>4.15</b> Technical Analysis</a><ul>
+<li class="chapter" data-level="4.15.1" data-path="data.html"><a href="data.html#moving-averages"><i class="fa fa-check"></i><b>4.15.1</b> Moving Averages</a></li>
+<li class="chapter" data-level="4.15.2" data-path="data.html"><a href="data.html#relative-strength-indicator"><i class="fa fa-check"></i><b>4.15.2</b> Relative Strength Indicator</a></li>
+<li class="chapter" data-level="4.15.3" data-path="data.html"><a href="data.html#commodity-channel-index"><i class="fa fa-check"></i><b>4.15.3</b> Commodity Channel Index</a></li>
+</ul></li>
+<li class="chapter" data-level="4.16" data-path="data.html"><a href="data.html#politics"><i class="fa fa-check"></i><b>4.16</b> Politics</a><ul>
+<li class="chapter" data-level="4.16.1" data-path="data.html"><a href="data.html#days-to-next-presidential-elections"><i class="fa fa-check"></i><b>4.16.1</b> Days to next Presidential Elections</a></li>
+<li class="chapter" data-level="4.16.2" data-path="data.html"><a href="data.html#political-party"><i class="fa fa-check"></i><b>4.16.2</b> Political Party</a></li>
+</ul></li>
+<li class="chapter" data-level="4.17" data-path="data.html"><a href="data.html#economics"><i class="fa fa-check"></i><b>4.17</b> Economics</a><ul>
+<li class="chapter" data-level="4.17.1" data-path="data.html"><a href="data.html#national-financial-conditions-index-nfci"><i class="fa fa-check"></i><b>4.17.1</b> National Financial Conditions Index (NFCI)</a></li>
+<li class="chapter" data-level="4.17.2" data-path="data.html"><a href="data.html#industrial-production-index-ipro"><i class="fa fa-check"></i><b>4.17.2</b> Industrial Production Index (IPRO)</a></li>
+<li class="chapter" data-level="4.17.3" data-path="data.html"><a href="data.html#government-consumption-expenditures-and-gross-investment-gce"><i class="fa fa-check"></i><b>4.17.3</b> Government Consumption Expenditures and Gross Investment (GCE)</a></li>
+<li class="chapter" data-level="4.17.4" data-path="data.html"><a href="data.html#unemployment-rate-unrate-1"><i class="fa fa-check"></i><b>4.17.4</b> Unemployment Rate (UNRATE)</a></li>
+<li class="chapter" data-level="4.17.5" data-path="data.html"><a href="data.html#real-gross-domestic-product-gdpc1-1"><i class="fa fa-check"></i><b>4.17.5</b> Real Gross Domestic Product (GDPC1)</a></li>
+<li class="chapter" data-level="4.17.6" data-path="data.html"><a href="data.html#personal-saving-rate-psavert"><i class="fa fa-check"></i><b>4.17.6</b> Personal Saving Rate (PSAVERT)</a></li>
+<li class="chapter" data-level="4.17.7" data-path="data.html"><a href="data.html#disposable-personal-income-dspi"><i class="fa fa-check"></i><b>4.17.7</b> Disposable Personal Income (DSPI)</a></li>
+<li class="chapter" data-level="4.17.8" data-path="data.html"><a href="data.html#real-manufacturing-and-trade-industries-sales-cmrmtspl"><i class="fa fa-check"></i><b>4.17.8</b> Real Manufacturing and Trade Industries Sales (CMRMTSPL)</a></li>
+<li class="chapter" data-level="4.17.9" data-path="data.html"><a href="data.html#new-private-housing-units-authorized-by-building-permits-permit"><i class="fa fa-check"></i><b>4.17.9</b> New Private Housing Units Authorized by Building Permits (PERMIT)</a></li>
+<li class="chapter" data-level="4.17.10" data-path="data.html"><a href="data.html#year-treasury-constant-maturity-rate-dgs10-1"><i class="fa fa-check"></i><b>4.17.10</b> 10-Year Treasury Constant Maturity Rate (DGS10)</a></li>
+<li class="chapter" data-level="4.17.11" data-path="data.html"><a href="data.html#year-treasury-constant-maturity-minus-2-year-treasury-constant-maturity-t10y2y"><i class="fa fa-check"></i><b>4.17.11</b> 10-Year Treasury Constant Maturity Minus 2-Year Treasury Constant Maturity (T10Y2Y)</a></li>
+<li class="chapter" data-level="4.17.12" data-path="data.html"><a href="data.html#year-treasury-constant-maturity-minus-federal-funds-rate-t10yff"><i class="fa fa-check"></i><b>4.17.12</b> 10-Year Treasury Constant Maturity Minus Federal Funds Rate (T10YFF)</a></li>
+<li class="chapter" data-level="4.17.13" data-path="data.html"><a href="data.html#month-treasury-bill-minus-federal-funds-rate-tb6smffm"><i class="fa fa-check"></i><b>4.17.13</b> 6-Month Treasury Bill Minus Federal Funds Rate (TB6SMFFM)</a></li>
+<li class="chapter" data-level="4.17.14" data-path="data.html"><a href="data.html#month-treasury-constant-maturity-minus-federal-funds-rate-t6mff"><i class="fa fa-check"></i><b>4.17.14</b> 6-Month Treasury Constant Maturity Minus Federal Funds Rate (T6MFF)</a></li>
+<li class="chapter" data-level="4.17.15" data-path="data.html"><a href="data.html#coincident-economic-activity-index-for-the-united-states-usphci"><i class="fa fa-check"></i><b>4.17.15</b> Coincident Economic Activity Index for the United States (USPHCI)</a></li>
+<li class="chapter" data-level="4.17.16" data-path="data.html"><a href="data.html#leading-index-for-the-united-states-usslind"><i class="fa fa-check"></i><b>4.17.16</b> Leading Index for the United States (USSLIND)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a><ul>
+<li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#presidential-cycles-1"><i class="fa fa-check"></i><b>5.1</b> Presidential Cycles</a></li>
+<li class="chapter" data-level="5.2" data-path="results.html"><a href="results.html#moving-average-classification"><i class="fa fa-check"></i><b>5.2</b> Moving Average Classification</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a><ul>
+<li class="chapter" data-level="6.1" data-path="conclusion.html"><a href="conclusion.html#summary"><i class="fa fa-check"></i><b>6.1</b> Summary</a></li>
+<li class="chapter" data-level="6.2" data-path="conclusion.html"><a href="conclusion.html#further-research"><i class="fa fa-check"></i><b>6.2</b> Further Research</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="conclusion.html"><a href="conclusion.html#sp500-market-sectors"><i class="fa fa-check"></i><b>6.2.1</b> S&amp;P500 Market Sectors</a></li>
+<li class="chapter" data-level="6.2.2" data-path="conclusion.html"><a href="conclusion.html#consensus"><i class="fa fa-check"></i><b>6.2.2</b> Consensus</a></li>
+<li class="chapter" data-level="6.2.3" data-path="conclusion.html"><a href="conclusion.html#fourier-analysis-matching"><i class="fa fa-check"></i><b>6.2.3</b> Fourier Analysis matching</a></li>
+<li class="chapter" data-level="6.2.4" data-path="conclusion.html"><a href="conclusion.html#fourier-analysis-contractionexpansion"><i class="fa fa-check"></i><b>6.2.4</b> Fourier Analysis Contraction/Expansion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ref.html"><a href="ref.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://www.michaelazer.com" target="blank">Copyright &copy; 2020 by Michael Azer</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Intelligent Market Cycle Detection System</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="litrev" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Literature Review</h1>
+<p>The literature is full of research on factors that determine stock market cycles. Researchers have studied the macro-economic factors determining market cycles, not just minor fluctuations or short-term changes in trends <span class="citation">(Bosworth, Hymans, and Modigliani <a href="#ref-bosworth1975stock">1975</a>)</span>. The importance and the continuous improvement of the interpretation and prediction models of stock market cycles have led it to be an evergreen topic <span class="citation">(Jareño et al. <a href="#ref-jareno2019macroeconomic">2019</a>)</span>.</p>
+<p>Researchers have divided methodologies that analyze business cycles into two main categories: the growth cycle approach, and the classical cycle approach. <span class="citation">(McDermott and Scott, 1999; Harding and Pagan <a href="#ref-harding2005suggested">2005</a>)</span> The growth cycle approach analyzes deviations from a long-run trend of economic activity, while the classical cycle approach aims to find a pattern of expansions and contractions in economic activity. In earlier papers, Harding and Pagan <span class="citation">(<a href="#ref-harding2001extracting">2001</a>, <a href="#ref-harding2002dissecting">2002</a>)</span> have also devised a methodology called the triangular method that constructs a chronology for boom and recession phases in real asset prices.</p>
+<p>In each of the aforementioned methodologies, researchers choose among different procedures that primarily filter the series, then determine the optimal threshold to classify time periods into market stages. The most used method in the literature is the mean-reversion method (sometimes called the moving average method). In this method, the moving average of a series’ returns is calculated. Accordingly, periods with returns higher than a predefined threshold are classified as boom periods, while periods with returns lower are classified as recession periods. <span class="citation">(Michaelides and Zhang <a href="#ref-michaelides2017stock">2017</a>)</span></p>
+<p>A parallel research track is linking macro-economic factors and political events with the stock market (Allvine &amp; O’Neill, 1980). As an example, they have succeeded in finding patterns between presidential elections and stock market cycles. Researchers have since then been researching and correlating new events to properly classify cycle phases <span class="citation">(Santa-Clara and Valkanov <a href="#ref-santa2003presidential">2003</a>; Herbst and Slinkman <a href="#ref-herbst1984political">1984</a>)</span>.</p>
+<p>In general, the literature is full of research that aims at discovering stock market cycles whether using technical indicators, or using political/economic events. On the other hand, there is barely any research used that combines machine learning techniques with both, technical indicators and political/economic events.</p>
+<div id="duration-dependence" class="section level2">
+<h2><span class="header-section-number">2.1</span> Duration-dependence</h2>
+<div id="definition" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Definition</h3>
+<p>Stating that the stock market follows a random walk presents important challenges to those who use fundamental analysis, as well as those who use technical analysis. In an efficient market, at any point in time, the price of the security reflects its intrinsic value. If the price of a security followed a random walk, the intrinsic value of a security would have never been determined. <span class="citation">(Fama <a href="#ref-fama1995random">1995</a>)</span></p>
+<p>Describing the stock market as following a random walk is not consistent with the notion of seasonality or cycles. If stock prices follow a random walk, then “prolonged cycles of expansion and contraction are similar to runs of consecutive heads or tails in a fair coin toss. Regardless of how many consecutive heads are obtained, for example, the probability of obtaining a head on the next toss remains constant.” <span class="citation">(Cochran and Defina <a href="#ref-cochran1995duration">1995</a>)</span></p>
+<p>It is arguble that the stock market has undergone cycles of expansion and contraction in the last century. In order to confirm this, a clear definition of cycles is needed. In the literature, there is no general consensus on the definition of stock market cycles. Earlier studies, define expansions as the periods when the monthly returns exceed a certain value, and vice verse <span class="citation">(Fabozzi and Francis <a href="#ref-fabozzi1977stability">1977</a>; Kim and Zumwalt <a href="#ref-kim1979analysis">1979</a>; Chen <a href="#ref-chen1982examination">1982</a>)</span>. The problem with such a definition is that it ignores trends that exist in markets.</p>
+<p>Lunde and Timmermann <span class="citation">(<a href="#ref-lunde2004duration">2004</a>)</span> solved this problem by adding an upward price trend to their definition, stating that a cycle is a long-term upward price movement characterized by higher intermediate highs interrupted by higher intermediate lows.</p>
+<p>In general, “a stock market is said to change from contraction to expansion if the stock index has risen for a substantial period since its previous troughs.” <span class="citation">(Chong et al. <a href="#ref-chong2010investigation">2010</a>)</span></p>
+<p><span class="citation">(Ohn, Taylor, and Pagan <a href="#ref-ohn2004testing">2004</a>)</span></p>
+<p><span class="citation">(Harman and Zuehlke <a href="#ref-harman2007nonlinear">2007</a>)</span></p>
+</div>
+<div id="turning-point-detection" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Turning-point Detection</h3>
+<p><span class="citation">(Gonzalez et al. <a href="#ref-gonzalez2005two">2005</a>)</span></p>
+<p>A limited number of studies have examined bull and bear markets, but very few of these studies have utilized formal, consistent, and quantifiable rules (Pagan &amp; Sossounov, 2003). It is also usually impossible to work backwards from the bull and bear market dates provided in the studies to determine the rules that were used. Most stock market turning-point dating methods appear to implicitly use informal, complicated variants of the National Bureau of Economic Research (NBER) rules for dating the business cycle (see, e.g., Rea &amp; Marcus, 1996).</p>
+<p>Bry and Boschan (1971) devise an algorithm to replicate the widely agreed-upon NBER business cycle turning points, thus creating quantitative, formal dating rules that mimic the qualitative rules used by the NBER to decide upon turning points. The algorithm detects local peaks and troughs in the business cycle, subject to certain rules—a peak (trough) is identified as a point higher (lower) than points 6 months on either side (the window). A cycle must last at least 15 months from the peak to the trough and back to the peak, and a phase (expansion or contraction) must span at least 5 months (the minimum phase length). This latter 5-month rule is extremely important, especially for stock market applications, because cycle phases that last for less than 5 months will generally have little economic or statistical significance, thus, their inclusion would often tend to limit the potential usefulness of the dating exercise for investors and researchers.</p>
+<p>Devising an algorithm to replicate stock market turning points is problematic because there is a lack of consensus regarding some of the bull and bear market turning points. Pagan and Sossounov (2003) have therefore adapted the Bry and Boschan (BB) algorithm for use in stock markets by consulting some of the earliest literature on bull and bear markets. First, the data are not smoothed at all because the large movements that are possible in equity markets are some of the most interesting data points, and smoothing the data might remove their effects (see also Canova, 1994, 1999).3 The window for identifying local peaks and troughs is extended to 8 months on either side, with the extension being justified based upon the lack of smoothing of the data. A cycle is required to last at least 16 months (rather than 15 months), whereas the minimum phase length is reduced to 4 months. To accommodate the sharp movements that can be observed in stock prices, the minimum phase length is disregarded should the stock price index fall or rise by 20% in a single month.</p>
+<p>Pagan and Sossounov (2002) apply their algorithm to a series of 20th century stock index data from the U.S., UK, and Australian markets. Once the turning points have been identified, characteristics of bull and bear markets are examined. Bull markets are found to last longer and give higher returns in Australia than in the other two countries, although the patterns are quite similar. Most bull markets result in a greater than 20% rise in stock prices, while fewer than half of the bear markets result in a market decline of more than 20%. The information gathered about bull and bear markets is used to test whether various asset-pricing models are capable of producing simulated returns with properties that are similar with those actually observed.</p>
+<p>An alternative and more complex method of identifying bull and bear market turning points is that of regime switching. Maheu and McCurdy (2000) apply a Markov regime switching model with duration dependence. In this instance, bull and bear markets are defined as high-return stable states and low-return volatile states, respectively. The best market gains are found to occur at the beginning of a bull market, and the stock market is found to spend 90% of its time in bull markets.</p>
+<p>Turner, Startz, and Nelson (1989) find that excess returns can be modeled using a mixture of normal densities with different means and variances. Agents’ volatility perceptions determine the risk premium in their model, and they argue that agents are continually surprised when entering high-volatility states. Their analysis focuses on volatility shifts rather than on the dating of bull and bear market turning points.</p>
+<p>Hamilton and Lin (1996) examine the joint behaviour of stock returns and industrial production. They find that economic recessions are the primary factor that drive fluctuations in the volatility of stock returns. They argue that stock returns are well characterized by year long episodes of high volatility, separated by longer quiet periods.</p>
+<p>Schaller and Van Norden (1997) test between fads and bubble explanations of stock market returns. They find evidence in favour of a bubbles model, in which expected returns are greater in states when the bubble survives than when it collapses, and collapses are more likely to occur when bubbles are large
+in magnitude. A crash is defined in their model as a move of two standard deviations below the mean.</p>
+<p>Stock market studies that consider market trends but do not formally examine bull and bear markets include the return momentum literature. This literature finds that individual bwinningQ stocks, as well as portfolios of bwinnerQ stocks, tend to outperform during the following quarters, thus indicating the existence of an important momentum effect in the stock market (see, e.g., Haugen &amp; Baker, 1996; Jegadeesh &amp; Titman, 1993). Chan, Hameed, and Tong (2000) find that international country index momentum strategies are profitable, thus implying that momentum effects are also important at the aggregate stock index level. Their result therefore indirectly indicates that bull and bear market cycles are likely to provide economically and statistically significant return differences because it could be anticipated that positive momentum would correspond to bull market phases and negative momentum to bear markets. The authors also examine the interrelationship between momentum effects and share trading volume trends using an informal, short-term definition of trading volume direction.</p>
+<p>Aggregate stock market momentum effects, whether due to investor herding behaviour or underlying fundamental reasons, provide a possible explanation as to why bull markets could display return persistence, as could style-investing effects, whereby a particular investing style becomes predominant during a particular time period (Barberis &amp; Shleifer, 2000; Grinblatt, Titman, &amp; Wermers, 1995; Lakonishok, Shleifer, &amp; Vishny, 1992). Chordia and Shivakumar (2002) find that stock market momentum effects can be explained using a set of lagged macroeconomic variables, thus implying that time-varying expected returns are a potentially important consideration when explaining return continuation in bull or bear markets.</p>
+<p>Welch (2000) finds that analysts adjust their forecasts to follow the prevailing consensus when the short-term stock market trend is bullish and revise their forecasts downwards when the stock market has fallen. He argues that this consensus-following in upwards- trending markets, makes bull markets more fragile because optimism prevails even when it is misplaced, thus increasing the likelihood that bad news could have a dramatic effect on investors as they realize that their optimism was unwarranted. The analysis also suggests that bull markets and investor optimism indicators are intertwined. Welch looks at the return during the preceding 60 days to determine whether market conditions are bullish or bearish.</p>
+</div>
+<div id="cycle-length" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Cycle Length</h3>
+<p>The first issue to be addressed is whether stock prices have a tendency to maintain fixed cycle lengths. The existence of fixed cycle lengths has three important and interrelated implications for stock price behavior.</p>
+<ul>
+<li>First, as a cycle lengthens, the probability that it will end should increase.</li>
+<li>Second, the existence of fixed cycle lengths indicates that the length of a cycle may be useful in forecasting future turning points in the stock market. This view is sometimes expressed in the popular press in regard to both stock market and overall economic activity.</li>
+<li>Third, the tendency for stock prices to maintain fixed cycle lengths implies that the stock market follows an alternating pattern of bull and bear markets, i.e. that predictable periodicity is present in stock market prices. <span class="citation">(Cochran and Defina <a href="#ref-cochran1995duration">1995</a>)</span></li>
+</ul>
+</div>
+<div id="cycle-synchronization" class="section level3">
+<h3><span class="header-section-number">2.1.4</span> Cycle Synchronization</h3>
+<p><span class="citation">(Crum <a href="#ref-crum1925progressive">1925</a>)</span>
+<span class="citation">(Harding and Pagan <a href="#ref-harding2006synchronization">2006</a>)</span></p>
+</div>
+<div id="bubbles-and-recessions" class="section level3">
+<h3><span class="header-section-number">2.1.5</span> Bubbles and Recessions</h3>
+<p><span class="citation">(McQueen and Thorley <a href="#ref-mcqueen1994bubbles">1994</a>)</span></p>
+<p>In particular, one of the NBER dating rules is that recessions must correspond to a general downturn in various sectors of the economy for a minimum duration of 6 months.</p>
+<p>See Hamilton 1989 and Chauvet 1998 , among others, for alternative business cycle dating.</p>
+<p>Thus, the NBER recessions do not reflect periods of short-lived contractions or periods in which only some sectors of the economy might experience a downturn. There is no reason to believe that the stock market only responds to recessions as defined by the NBER. ÷</p>
+<p><span class="citation">(Chauvet and Potter <a href="#ref-chauvet2000coincident">2000</a>)</span></p>
+</div>
+</div>
+<div id="established-cycles" class="section level2">
+<h2><span class="header-section-number">2.2</span> Established Cycles</h2>
+<div id="kondratiev" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Kondratiev</h3>
+<p>The Kondratiev (Kondratieff) Cycle, or sometimes referred to as the Kondrtiev Wave, refers to “wave-like movements in prices, interest rates, and other economic quanitites that repeat at 50-60 year intervals.” <span class="citation">(Alexander <a href="#ref-alexander2002kondratiev">2002</a>)</span> These long-term cycles were noted in an article in the British Railway Journal by Dr. Hyde Clark back in 1847 <span class="citation">(Mager <a href="#ref-mager1987kondratiev">1987</a>)</span>, but it was named after Nikolai Kondratiev because he was the first to describe it in detail in 1935 (1926). Between Clark and Kondratiev several scientists studied business cycles, such as William Jevins who related business cycles to sunspot activity (Jevons, 1878), and Henry Ludwell Moore who studied the relation between business cycles and climate variations. (Moore, 1914) Kondratiev’s work has been used as a foundation for several later studies.</p>
+<p>Joseph Schumpeter, another famous scientist in the economical cycles field, linked long-term economic cycles (and in particular Kondratiev’s cycle) to major technological innovations, which he claimed come in clusters (Schumpeter, 1939).</p>
+<p>Kondratiev’s work has been heavily scrutenized by several critics who doubted the existence of such waves, as well as the explanation suggested by Schumpeter. A prominent critic is Murray Rothbard, who presented arguments showing that the Kondratiev cycle is not consistent. In addition he argued that the methodology implemented by Kondratiev was based on the fluctuation of prices, which do not directly nor accurately reflect the state of the economy. (Rothbard,1978)</p>
+</div>
+<div id="kuznets" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Kuznets</h3>
+</div>
+<div id="juglar" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Juglar</h3>
+</div>
+<div id="kitchin" class="section level3">
+<h3><span class="header-section-number">2.2.4</span> Kitchin</h3>
+<p><span class="citation">(Kitchin <a href="#ref-kitchin1923cycles">1923</a>)</span>
+<span class="citation">(Crum <a href="#ref-crum1923cycles">1923</a>)</span>
+<span class="citation">(Crum <a href="#ref-crum1925progressive">1925</a>)</span></p>
+</div>
+</div>
+<div id="classification-of-sp500" class="section level2">
+<h2><span class="header-section-number">2.3</span> Classification of S&amp;P500</h2>
+</div>
+<div id="features-to-determine-phases" class="section level2">
+<h2><span class="header-section-number">2.4</span> Features to determine phases</h2>
+<div id="political-events" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Political Events</h3>
+<div id="presidential-cycles" class="section level4">
+<h4><span class="header-section-number">2.4.1.1</span> Presidential Cycles</h4>
+<p>It is reasonable to believe there is a four-year cyclical behavior in the stock market that mirrors the presidential cycle. <span class="citation">(Herbst and Slinkman <a href="#ref-herbst1984political">1984</a>)</span> Herbst and Slinkman have studied this behavior on monthly data of the CSRP index in the period between January 1926 and December 1977. They have successfully concluded that there is a four-year that reaches its peak in December of presidential election years. This research opened the doors for other researchers to build on their findings, because they only studied the presence of such a four cycle, but did not go into studying the effect of different parties on the stock market.</p>
+<p>During the periods prior to elections, the media is filled with debates whether Democrats or Republicans are better for the US economy. Minimum or no attention has been given to this topic in academic research, until Santa-Clara and Valkanov published their study. In their study, they measured the excess return of the value-weighted CRSP and the equal-weighted CSRP indices over the three-month Treasury bill rate for data between 1927 and 1998. Their results showed that on average Republicans yielded 2 percent versus 11 percent under Democratic presidents. <span class="citation">(<a href="#ref-santa2003presidential">2003</a>)</span> Although the paper was statistically and empiracally correct, it failed at stating the reasons behind such behavior, and named it the “presidential puzzle”.</p>
+<p>Pastor and Veronesi in their research sought out to solve the “presidential puzzle”. The puzzle seemed as a genuine fact, especially that between 1999 and 2015 the gap widened from the 9% measured by Santa-Clara and Valkanov to 17.4% per year. Although it may be tempting to link such a behavior to different economic policies of the two parties, Pastor and Veronesi found that the main factor is risk appetite. “Democrats tend to get elected when expected future returns are high; Republicans win when expected returns are low.” <span class="citation">(<a href="#ref-pastor2017political">2017</a>)</span> In other words Democrats more likely to get elected when risk aversion is high.</p>
+<p>This high-risk aversion that leads to the election of democrats has been studied and hypothesized by several researchers. Wright <span class="citation">(<a href="#ref-wright2012unemployment">2012</a>)</span> proved that high unemployment rates greatly affect voters’ tendency to vote for the Democratic party. Guiso et al <span class="citation">(<a href="#ref-guiso2018time">2018</a>)</span> generalized Wright’s findings to include all times of economic turmoil, not just high unemployment rates. During such periods, high tax parties tend to get elected. Broz’s study <span class="citation">(<a href="#ref-broz2013partisan">2013</a>)</span> examined several developed countries and found that left-wing governments (Democrats, in the US) have a higher probability to be elected after financial crashes. This can be affirmed by a simple review of history:</p>
+<ul>
+<li>In 1932, during the Great Depression, Franklin Roosevelt won the election.</li>
+<li>During the 1960-61 recession, John F. Kennedy was elected.</li>
+<li>After the 1973-75 recession, Carter won the election.</li>
+<li>After the 1990-91 recession, Clinton won.</li>
+<li>At the peak of the 2008 financial crisis, Republican George W. Bush was replaced by Democrat Barack Obama.</li>
+</ul>
+<p>It can be concluded that “when the economy is weak, risk aversion rises, contributing to a Democrat victory.” <span class="citation">(Pastor and Veronesi <a href="#ref-pastor2017political">2017</a>)</span></p>
+<p>Belo, Gala, and Li <span class="citation">(<a href="#ref-belo2013government">2013</a>)</span> introduce a new factor to the study of the relation between presidential cycles and the stock market, government spending. They believe that Democratic policies of government spending flourish the market. “During Democratic presidencies, firms with high government exposure experience higher cash flows and stock returns, while the opposite pattern holds true during Republican presidencies.”</p>
+</div>
+<div id="cabinets" class="section level4">
+<h4><span class="header-section-number">2.4.1.2</span> Cabinets</h4>
+</div>
+<div id="wars" class="section level4">
+<h4><span class="header-section-number">2.4.1.3</span> Wars</h4>
+<p><span class="citation">(Aguiar-Conraria, Magalhães, and Soares <a href="#ref-aguiar2012cycles">2012</a>)</span></p>
+</div>
+</div>
+<div id="economic-factors" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Economic Factors</h3>
+<p>A great deal of evidence has recently been uncovered concerning the predictability of excess stock returns using financial and macroeconomic variables that convey publicly available information about business conditions. Most of this evidence is based on linear regression methods, which show that</p>
+<ul>
+<li>lagged values of the dividend yield,</li>
+<li>earning-price ratios,</li>
+<li>interest rates, and</li>
+<li>measures of the term premium or default risk</li>
+</ul>
+<p>are statistically significant explanatory variables. Some researchers have interpreted these regressors as proxies for unobserved time-varying risk premia.</p>
+<p>See, for example Fama and French 1988; 1989 , Fama and Schwert 1977 , Keim and Stambaugh 1986 , or Campbell and Shiller 1988 among others.</p>
+<p>One conclusion has been that the unobserved risk premia vary systematically over the business cycle.</p>
+<p><span class="citation">(Chauvet and Potter <a href="#ref-chauvet2000coincident">2000</a>)</span></p>
+<p>During six weeks in late 1937, Wesley Mitchell, Arthur Burns, and their colleagues at the National Bureau of Economic Research developed a list of leading, coincident, and lagging indicators of economic activity in the United States as part of the NBER research program on business cycles. Since their development, these indicators, in particular the leading and coincident indexes constructed from these indicators, have played an important role in summarizing and forecasting the state of macro-economic activity.
+This paper reports the results of a project to revise the indexes of leading and coincident economic indicators using the tools of modern time series econometrics. This project addresses three central questions.
+* The first is conceptual: is it possible to develop a formal probability model that gives rise to the indexes of leading and coincident variables? Such a model would provide a concrete mathematical framework within which alternative variables and indexes could be evaluated.
+* Second, given this conceptual framework, what are the best variables to use as components of the leading index? Third, given these variables, what is the best way to combine them to produce useful and reliable indexes?
+The results of this project are three experimental monthly indexes: an index of coincident economic indicators (CEI), an index of leading economic indicators (LEI), and a Recession Index. The experimental CEI closely tracks the coincident index currently produced by the Department of Commerce (DOC), although the methodology used to produce the two series differs substantially. The growth of the experimental CEI is also highly correlated with the growth of real GNP at business cycle frequencies. The proposed LEI is a forecast of the growth of the proposed CEI over the next six months constructed using a set of leading variables or indicators. The Recession Index, a new series, is the probability that the economy will be in a recession six months hence, given data available through the month of its construction.
+This article is organized as follows. Section 2 contains a discussion of the indexes and a framework for their interpretation. Section 3 presents the experimental indexes, discusses their construction, and examines their within-sample performance. In Section 4, the indexes are considered from the perspective of macroeconomic theory, focusing in particular on several salient series that are not included in the proposed leading index. Section 5 concludes.</p>
+<p><span class="citation">(Stock and Watson <a href="#ref-stock1989new">1989</a>)</span></p>
+<div id="unemployment" class="section level4">
+<h4><span class="header-section-number">2.4.2.1</span> Unemployment</h4>
+<p><span class="citation">(Wright <a href="#ref-wright2012unemployment">2012</a>)</span></p>
+</div>
+<div id="government-spending" class="section level4">
+<h4><span class="header-section-number">2.4.2.2</span> Government Spending</h4>
+</div>
+<div id="gdp" class="section level4">
+<h4><span class="header-section-number">2.4.2.3</span> GDP</h4>
+</div>
+<div id="interest-rates" class="section level4">
+<h4><span class="header-section-number">2.4.2.4</span> Interest Rates</h4>
+<p><span class="citation">(Chauvet and Potter <a href="#ref-chauvet2005forecasting">2005</a>)</span></p>
+</div>
+<div id="foreign-exchange" class="section level4">
+<h4><span class="header-section-number">2.4.2.5</span> Foreign Exchange</h4>
+</div>
+<div id="index-for-industrial-production" class="section level4">
+<h4><span class="header-section-number">2.4.2.6</span> Index For Industrial Production</h4>
+</div>
+</div>
+<div id="health-shocks-pandemics-and-epidemics" class="section level3">
+<h3><span class="header-section-number">2.4.3</span> Health Shocks (Pandemics and Epidemics)</h3>
+<p>“The fourth-worst global macroeconomic event since 1870 seems to be the Great Influenza Epidemic of 1918-20. This”health shock&quot; accounts for 13 of the depression events.&quot; <span class="citation">(BARRO and URSUA <a href="#ref-barro2009pandemics">2009</a>)</span></p>
+<p>It seems unlikely that the 2009 influenza epidemic will be anywhere near as bad as the 1918-20 pandemic in illness or mortality. For more recent comparisons, one can begin with the flu pandemics of 1957-58 and 1968-70, which were serious in terms of deaths but not comparable to 1918-20. In these cases, stock prices fell temporarily in some countries, until the limited scope of the pandemics became clear. In 1976, a swine-flu scare prompted a fall in stock prices in some countries and a massive U.S. immunization campaign. However, the disease was soon found to be mild, and the overall effects on financial markets were minor. The most recent event is the outbreak of SARS in late 2002. This pandemic caused a widespread fall in stock prices, until the limited nature of the disease threat became evident in the spring of 2003. The economic impacts of the four post-World War II flu events are difficult to pin down and are surely much smaller in magnitude that those from the 1918-20 pandemic.</p>
+</div>
+<div id="financial-indicators" class="section level3">
+<h3><span class="header-section-number">2.4.4</span> Financial Indicators</h3>
+<div id="fundamental" class="section level4">
+<h4><span class="header-section-number">2.4.4.1</span> Fundamental</h4>
+</div>
+<div id="technical" class="section level4">
+<h4><span class="header-section-number">2.4.4.2</span> Technical</h4>
+<p>According to John Murphy <span class="citation">(<a href="#ref-murphy1999technical">1999</a>)</span>, the technical analysis approach is built on three main premises:</p>
+<ul>
+<li>The first premise, which summarizes the whole reason behind Technical Analysis, is that the market movements discount all factors. This entails that anything that can affect the price whether fundamentally, politically, psychologically or otherwise is actually reflected in the market price.</li>
+<li>The second premise is that prices move in trends. Therefore, the purpose of charting the market price movement is to be able to identify trends, thus trade in the right direction.</li>
+<li>The third premise is that history repeats itself, thus patterns that have worked well in the past are assumed to continue working well in the future. This premise is built on the belief that the psychology of the human rational investor does not tend to change. This leads to a high probability that historical market patterns will be repeated in the future.</li>
+</ul>
+<p>Fang et al. <span class="citation">(<a href="#ref-fang2014technical">2014</a>)</span> state that although the patterned behavior may seem irrational, through exploration the pattern one can effectively predict future price movements.</p>
+<p>Market indicators are meant to expand the set of information used by traders beyond price and volume. They can be classified into two groups:</p>
+<ul>
+<li>Market sentiment indicators that predict market movements based on tracking the bullish or bearish psychology of the market. Simply, when bullish sentiment dominates the market, stock prices rise, leading to an increased demand for securities, and vice versa.</li>
+<li>Market strength indicators that measure the strength of market movements. A strong movement with a higher breadth reading will last longer and take the market to higher highs, and vice versa.</li>
+</ul>
+<p>Chong et al. <span class="citation">(<a href="#ref-chong2010investigation">2010</a>)</span> state that a recurrent method for identifying the bull/bear pattern is the intersection of the 250-day moving average line with the security price line. A bull pattern is the period during which the security price is above its 250-day moving average, and vice versa. Researchers and investors who utilize this do so for its simple to implement, its self adjusts to price trends, and its quick identification of market patterns.</p>
+<p>Another famous method in finding patterns is the Bry and Boschan (BB) routine. It finds statistical maxima and minima, and in the meantime incorporating censoring rules, as well as phase and cycle length constraints.<span class="citation">(Granger <a href="#ref-granger1972cyclical">1972</a>)</span></p>
+<p>In comparison to the moving average method, “the BB method has a time lag problem since it uses the future price to define the current trough and peak. For instance, if monthly data are used, we can only identify a pattern 6 month after its occurrence.” <span class="citation">(Chong et al. <a href="#ref-chong2010investigation">2010</a>)</span></p>
+<p>Fand, Qin and Jacobsen <span class="citation">(Fang, Qin, and Jacobsen <a href="#ref-fang2014technical">2014</a>)</span> studied 93 technical indicators on the S&amp;P500, covering daily, weekly, monthly and annual indicators, and concluded that although some indictors may beat the market, none of them are statisticaltly robust to beat the buy-and hold strategy. This result does not change even when they consider the possibility of switching predictability methods on business cycles or sentiment cycles.</p>
+</div>
+</div>
+</div>
+<div id="importance-of-features" class="section level2">
+<h2><span class="header-section-number">2.5</span> Importance of features</h2>
+</div>
+<div id="market-prediction" class="section level2">
+<h2><span class="header-section-number">2.6</span> Market prediction</h2>
+
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-aguiar2012cycles">
+<p>Aguiar-Conraria, Luı's, Pedro C Magalhães, and Maria Joana Soares. 2012. “Cycles in Politics: Wavelet Analysis of Political Time Series.” <em>American Journal of Political Science</em> 56 (2). Wiley Online Library: 500–518.</p>
+</div>
+<div id="ref-alexander2002kondratiev">
+<p>Alexander, Michael A. 2002. <em>The Kondratiev Cycle: A Generational Interpretation</em>. IUniverse.</p>
+</div>
+<div id="ref-barro2009pandemics">
+<p>BARRO, ROBERT J, and JOSE F URSUA. 2009. “Pandemics and Depressions.” <em>Wall Street Journal</em>.</p>
+</div>
+<div id="ref-belo2013government">
+<p>Belo, Frederico, Vito D Gala, and Jun Li. 2013. “Government Spending, Political Cycles, and the Cross Section of Stock Returns.” <em>Journal of Financial Economics</em> 107 (2). Elsevier: 305–24.</p>
+</div>
+<div id="ref-bosworth1975stock">
+<p>Bosworth, Barry, Saul Hymans, and Franco Modigliani. 1975. “The Stock Market and the Economy.” <em>Brookings Papers on Economic Activity</em> 1975 (2). JSTOR: 257–300.</p>
+</div>
+<div id="ref-broz2013partisan">
+<p>Broz, J Lawrence. 2013. “Partisan Financial Cycles.” <em>Politics in the New Hard Times: The Great Recession in Comparative Perspective</em>. Cornell University Press Ithaca, 75–101.</p>
+</div>
+<div id="ref-chauvet2000coincident">
+<p>Chauvet, Marcelle, and Simon Potter. 2000. “Coincident and Leading Indicators of the Stock Market.” <em>Journal of Empirical Finance</em> 7 (1). Elsevier: 87–111.</p>
+</div>
+<div id="ref-chauvet2005forecasting">
+<p>Chauvet, Marcelle, and Simon Potter. 2005. “Forecasting Recessions Using the Yield Curve.” <em>Journal of Forecasting</em> 24 (2). Wiley Online Library: 77–103.</p>
+</div>
+<div id="ref-chen1982examination">
+<p>Chen, Son-Nan. 1982. “An Examination of Risk-Return Relationship in Bull and Bear Markets Using Time-Varying Betas.” <em>Journal of Financial and Quantitative Analysis</em> 17 (2). Cambridge University Press: 265–86.</p>
+</div>
+<div id="ref-chong2010investigation">
+<p>Chong, Terence Tai-Leung, Zimu Li, Haiqiang Chen, and Melvin J Hinich. 2010. “An Investigation of Duration Dependence in the American Stock Market Cycle.” <em>Journal of Applied Statistics</em> 37 (8). Taylor &amp; Francis: 1407–16.</p>
+</div>
+<div id="ref-cochran1995duration">
+<p>Cochran, Steven J, and Robert H Defina. 1995. “Duration Dependence in the Us Stock Market Cycle: A Parametric Approach.” <em>Applied Financial Economics</em> 5 (5). Taylor &amp; Francis: 309–18.</p>
+</div>
+<div id="ref-crum1923cycles">
+<p>Crum, William L. 1923. “Cycles of Rates on Commercial Paper.” <em>The Review of Economic Statistics</em>. JSTOR, 17–29.</p>
+</div>
+<div id="ref-crum1925progressive">
+<p>Crum, William Leonard. 1925. “Progressive Variation in Seasonality.” <em>Journal of the American Statistical Association</em> 20 (149). Taylor &amp; Francis: 48–64.</p>
+</div>
+<div id="ref-fabozzi1977stability">
+<p>Fabozzi, Frank J, and Jack Clark Francis. 1977. “Stability Tests for Alphas and Betas over Bull and Bear Market Conditions.” <em>The Journal of Finance</em> 32 (4). Wiley Online Library: 1093–9.</p>
+</div>
+<div id="ref-fama1995random">
+<p>Fama, Eugene F. 1995. “Random Walks in Stock Market Prices.” <em>Financial Analysts Journal</em> 51 (1). Taylor &amp; Francis: 75–80.</p>
+</div>
+<div id="ref-fang2014technical">
+<p>Fang, Jiali, Yafeng Qin, and Ben Jacobsen. 2014. “Technical Market Indicators: An Overview.” <em>Journal of Behavioral and Experimental Finance</em> 4. Elsevier: 25–56.</p>
+</div>
+<div id="ref-gonzalez2005two">
+<p>Gonzalez, Liliana, John G Powell, Jing Shi, and Antony Wilson. 2005. “Two Centuries of Bull and Bear Market Cycles.” <em>International Review of Economics &amp; Finance</em> 14 (4). Elsevier: 469–86.</p>
+</div>
+<div id="ref-granger1972cyclical">
+<p>Granger, CWJ. 1972. “Cyclical Analysis of Time Series: Selected Procedures and Computer Programs.” <em>Journal of the Royal Statistical Society: Series A (General)</em> 135 (2). Wiley Online Library: 284–84.</p>
+</div>
+<div id="ref-guiso2018time">
+<p>Guiso, Luigi, Paola Sapienza, and Luigi Zingales. 2018. “Time Varying Risk Aversion.” <em>Journal of Financial Economics</em> 128 (3). Elsevier: 403–21.</p>
+</div>
+<div id="ref-harding2001extracting">
+<p>Harding, Don, and Adrian Pagan. 2001. “Extracting, Analysing and Using Cyclical Information.” <em>MPRA Paper</em>, no. 15.</p>
+</div>
+<div id="ref-harding2002dissecting">
+<p>Harding, Don, and Adrian Pagan. 2002. “Dissecting the Cycle: A Methodological Investigation.” <em>Journal of Monetary Economics</em> 49 (2). Elsevier: 365–81.</p>
+</div>
+<div id="ref-harding2005suggested">
+<p>Harding, Don, and Adrian Pagan. 2005. “A Suggested Framework for Classifying the Modes of Cycle Research.” <em>Journal of Applied Econometrics</em> 20 (2). Wiley Online Library: 151–59.</p>
+</div>
+<div id="ref-harding2006synchronization">
+<p>Harding, Don, and Adrian Pagan. 2006. “Synchronization of Cycles.” <em>Journal of Econometrics</em> 132 (1). Elsevier: 59–79.</p>
+</div>
+<div id="ref-harman2007nonlinear">
+<p>Harman, Yvette S, and Thomas W Zuehlke. 2007. “Nonlinear Duration Dependence in Stock Market Cycles.” <em>Review of Financial Economics</em> 16 (4). Elsevier: 350–62.</p>
+</div>
+<div id="ref-herbst1984political">
+<p>Herbst, Anthony F, and Craig W Slinkman. 1984. “Political-Economic Cycles in the Us Stock Market.” <em>Financial Analysts Journal</em> 40 (2). Taylor &amp; Francis: 38–44.</p>
+</div>
+<div id="ref-jareno2019macroeconomic">
+<p>Jareño, Francisco, Ana Escribano, Alberto Cuenca, and others. 2019. “Macroeconomic Variables and Stock Markets: An International Study.” <em>Applied Econometrics and International Development</em> 19 (1). Euro-American Association of Economic Development: 43–54.</p>
+</div>
+<div id="ref-kim1979analysis">
+<p>Kim, Moon K, and J Kenton Zumwalt. 1979. “An Analysis of Risk in Bull and Bear Markets.” <em>Journal of Financial and Quantitative Analysis</em> 14 (5). Cambridge University Press: 1015–25.</p>
+</div>
+<div id="ref-kitchin1923cycles">
+<p>Kitchin, Joseph. 1923. “Cycles and Trends in Economic Factors.” <em>The Review of Economic Statistics</em>. JSTOR, 10–16.</p>
+</div>
+<div id="ref-lunde2004duration">
+<p>Lunde, Asger, and Allan Timmermann. 2004. “Duration Dependence in Stock Prices: An Analysis of Bull and Bear Markets.” <em>Journal of Business &amp; Economic Statistics</em> 22 (3). Taylor &amp; Francis: 253–73.</p>
+</div>
+<div id="ref-mager1987kondratiev">
+<p>Mager, NH. 1987. <em>The Kondratiev Waves</em>. New York: Greenwood Press.</p>
+</div>
+<div id="ref-mcqueen1994bubbles">
+<p>McQueen, Grant, and Steven Thorley. 1994. “Bubbles, Stock Returns, and Duration Dependence.” <em>Journal of Financial and Quantitative Analysis</em> 29 (3). Cambridge University Press: 379–401.</p>
+</div>
+<div id="ref-michaelides2017stock">
+<p>Michaelides, Alexander, and Yuxin Zhang. 2017. “Stock Market Mean Reversion and Portfolio Choice over the Life Cycle.” <em>Journal of Financial and Quantitative Analysis</em> 52 (3). Cambridge University Press: 1183–1209.</p>
+</div>
+<div id="ref-murphy1999technical">
+<p>Murphy, John J. 1999. <em>Technical Analysis of the Financial Markets: A Comprehensive Guide to Trading Methods and Applications</em>. Penguin.</p>
+</div>
+<div id="ref-ohn2004testing">
+<p>Ohn, Jonathan, Larry W Taylor, and Adrian Pagan. 2004. “Testing for Duration Dependence in Economic Cycles.” <em>The Econometrics Journal</em> 7 (2). Oxford University Press Oxford, UK: 528–49.</p>
+</div>
+<div id="ref-pastor2017political">
+<p>Pastor, Lubos, and Pietro Veronesi. 2017. “Political Cycles and Stock Returns.” National Bureau of Economic Research.</p>
+</div>
+<div id="ref-santa2003presidential">
+<p>Santa-Clara, Pedro, and Rossen Valkanov. 2003. “The Presidential Puzzle: Political Cycles and the Stock Market.” <em>The Journal of Finance</em> 58 (5). Wiley Online Library: 1841–72.</p>
+</div>
+<div id="ref-stock1989new">
+<p>Stock, James H, and Mark W Watson. 1989. “New Indexes of Coincident and Leading Economic Indicators.” <em>NBER Macroeconomics Annual</em> 4. MIT press: 351–94.</p>
+</div>
+<div id="ref-wright2012unemployment">
+<p>Wright, John R. 2012. “Unemployment and the Democratic Electoral Advantage.” <em>American Political Science Review</em> 106 (4). Cambridge University Press: 685–702.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="methodology.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["MichaelAzer_thesis.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
